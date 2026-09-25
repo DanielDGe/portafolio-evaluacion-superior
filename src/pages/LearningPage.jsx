@@ -37,7 +37,7 @@ export default function LearningPage() {
                 onClick={() => navigate(routine.path)}
                 endIcon={routine.available ? <ArrowForwardRounded /> : <HourglassEmptyRounded />}
               >
-                {routine.available ? 'Ver evidencia' : 'Preparar sección'}
+                {routine.available ? 'Ver evidencia' : 'Evidencia en preparación'}
               </Button>
             </CardActions>
           </Card>
@@ -61,7 +61,7 @@ export function RoutinePlaceholder({ title, subtitle, description }) {
       <Card>
         <CardContent sx={{ p: { xs: 3, md: 5 } }}>
           <Typography variant="h5" fontWeight={800} gutterBottom>
-            Evidencia pendiente de incorporar
+            Evidencia en preparación
           </Typography>
           <Typography color="text.secondary" sx={{ maxWidth: 720, lineHeight: 1.8 }}>
             La pantalla ya forma parte de la estructura definitiva del portafolio. Cuando
