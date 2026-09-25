@@ -337,3 +337,43 @@ a {
   outline: 3px solid color-mix(in srgb, var(--mui-palette-primary-main) 40%, transparent);
   outline-offset: 3px;
 }
+
+
+.compare-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.compare-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.compare-center-card {
+  background: color-mix(in srgb, var(--mui-palette-primary-main) 5%, var(--mui-palette-background-paper));
+}
+
+.compare-symbol {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  color: var(--mui-palette-primary-contrastText);
+  background: var(--mui-palette-primary-main);
+}
+
+.compare-symbol svg {
+  font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  .compare-intro-grid,
+  .compare-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+}
