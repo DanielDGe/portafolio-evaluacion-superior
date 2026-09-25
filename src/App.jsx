@@ -5,6 +5,7 @@ import PurposePage from './pages/PurposePage.jsx'
 import LearningPage, { RoutinePlaceholder } from './pages/LearningPage.jsx'
 import SqaPage from './pages/SqaPage.jsx'
 import ObserveThinkWonderPage from './pages/ObserveThinkWonderPage.jsx'
+import CompareContrastPage from './pages/CompareContrastPage.jsx'
 import InstrumentsPage from './pages/InstrumentsPage.jsx'
 import ReflectionPage from './pages/ReflectionPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
@@ -25,13 +26,7 @@ function App() {
           />
           <Route
             path="aprendizaje/compara-contrasta"
-            element={
-              <RoutinePlaceholder
-                title="Compara y contrasta"
-                subtitle="Rutina de pensamiento"
-                description="Esta sección reunirá la evidencia donde se analizan semejanzas y diferencias entre sistemas y enfoques de evaluación."
-              />
-            }
+            element={<CompareContrastPage />}
           />
           <Route
             path="aprendizaje/conectar-extender-desafiar"
