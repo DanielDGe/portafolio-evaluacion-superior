@@ -6,6 +6,7 @@ import LearningPage, { RoutinePlaceholder } from './pages/LearningPage.jsx'
 import SqaPage from './pages/SqaPage.jsx'
 import ObserveThinkWonderPage from './pages/ObserveThinkWonderPage.jsx'
 import CompareContrastPage from './pages/CompareContrastPage.jsx'
+import ConnectExtendChallengePage from './pages/ConnectExtendChallengePage.jsx'
 import InstrumentsPage from './pages/InstrumentsPage.jsx'
 import ReflectionPage from './pages/ReflectionPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
@@ -30,13 +31,7 @@ function App() {
           />
           <Route
             path="aprendizaje/conectar-extender-desafiar"
-            element={
-              <RoutinePlaceholder
-                title="Conectar, extender, desafiar"
-                subtitle="Rutina de pensamiento"
-                description="Esta sección mostrará las conexiones con conocimientos previos, las ideas que ampliaron mi comprensión y los nuevos desafíos."
-              />
-            }
+            element={<ConnectExtendChallengePage />}
           />
           <Route path="instrumentos" element={<InstrumentsPage />} />
           <Route path="metacognicion" element={<ReflectionPage />} />
