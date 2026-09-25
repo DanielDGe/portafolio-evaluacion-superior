@@ -34,8 +34,8 @@ a {
 .page-heading h2 {
   margin-top: 14px;
   margin-bottom: 16px;
-  font-size: clamp(2.3rem, 5vw, 4.8rem);
-  line-height: 1.02;
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  line-height: 1.04;
 }
 
 .page-heading > p {
@@ -54,8 +54,8 @@ a {
 
 .home-title {
   max-width: 860px;
-  font-size: clamp(3rem, 6vw, 6rem) !important;
-  line-height: 0.98 !important;
+  font-size: clamp(2.9rem, 5.2vw, 4.6rem) !important;
+  line-height: 1 !important;
 }
 
 .home-lead {
@@ -250,6 +250,29 @@ a {
   }
 
   .home-title {
-    font-size: clamp(2.6rem, 13vw, 4.4rem) !important;
+    font-size: clamp(2.55rem, 12vw, 4rem) !important;
   }
+}
+
+
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--mui-palette-text-secondary) 24%, transparent) transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mui-palette-text-secondary) 20%, transparent);
+}
+
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--mui-palette-text-secondary) 38%, transparent);
 }
