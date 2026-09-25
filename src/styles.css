@@ -377,3 +377,20 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+
+.ced-stage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ced-stage-card {
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .ced-stage-grid {
+    grid-template-columns: 1fr;
+  }
+}
