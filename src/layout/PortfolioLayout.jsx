@@ -49,8 +49,8 @@ const learningItems = [
   { label: 'Resumen', path: '/aprendizaje', icon: AutoStoriesOutlined },
   { label: 'SQA', path: '/aprendizaje/sqa', icon: QuestionAnswerOutlined },
   {
-    label: 'Veo, pienso, me pregunto',
-    path: '/aprendizaje/veo-pienso-me-pregunto',
+    label: 'Observo, pienso, me pregunto',
+    path: '/aprendizaje/observo-pienso-me-pregunto',
     icon: PsychologyAltOutlined,
   },
   {
