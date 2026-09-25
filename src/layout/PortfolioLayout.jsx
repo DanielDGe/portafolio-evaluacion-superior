@@ -174,17 +174,48 @@ function Sidebar({ onNavigate }) {
           </Box>
         </Stack>
 
-        <Chip
-          size="small"
-          icon={<SchoolOutlined />}
-          label="ISAE Universidad"
-          variant="outlined"
-          sx={{ mt: 2, fontSize: 11, height: 30 }}
-        />
+        <Box
+          component="a"
+          href="https://www.isaeuniversidad.ac.pa/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Visitar el sitio oficial de ISAE Universidad"
+          sx={{
+            mt: 2,
+            p: 1.1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: 48,
+            border: 1,
+            borderColor: 'divider',
+            borderRadius: 2,
+            bgcolor: '#FFFFFF',
+            textDecoration: 'none',
+            transition: 'border-color 160ms ease, transform 160ms ease',
+            '&:hover': {
+              borderColor: 'primary.main',
+              transform: 'translateY(-1px)',
+            },
+          }}
+        >
+          <Box
+            component="img"
+            src="https://www.isaeuniversidad.ac.pa/wp-content/uploads/2023/06/Group-80.png"
+            alt="ISAE Universidad"
+            sx={{
+              display: 'block',
+              width: '100%',
+              maxWidth: 205,
+              height: 'auto',
+              objectFit: 'contain',
+            }}
+          />
+        </Box>
       </Box>
 
       <Divider />
-      <Box sx={{ flex: 1, overflowY: 'auto', py: 1.25 }}>
+      <Box className="sidebar-scroll" sx={{ flex: 1, overflowY: 'auto', py: 1.25 }}>
         <NavigationList onNavigate={onNavigate} />
       </Box>
       <Divider />
