@@ -276,3 +276,64 @@ a {
 .sidebar-scroll:hover::-webkit-scrollbar-thumb {
   background: color-mix(in srgb, var(--mui-palette-text-secondary) 38%, transparent);
 }
+
+
+.routine-section-icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--mui-palette-primary-main);
+  background: color-mix(in srgb, var(--mui-palette-primary-main) 10%, transparent);
+}
+
+.forum-evidence-button {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--mui-palette-divider);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--mui-palette-background-paper);
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.forum-evidence-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.forum-evidence-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  color: #ffffff;
+  background: rgba(15, 35, 59, 0.66);
+  backdrop-filter: blur(2px);
+  transition: opacity 180ms ease;
+}
+
+.forum-evidence-button:hover .forum-evidence-image,
+.forum-evidence-button:focus-visible .forum-evidence-image {
+  transform: scale(1.01);
+  filter: brightness(0.88);
+}
+
+.forum-evidence-button:hover .forum-evidence-overlay,
+.forum-evidence-button:focus-visible .forum-evidence-overlay {
+  opacity: 1;
+}
+
+.forum-evidence-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--mui-palette-primary-main) 40%, transparent);
+  outline-offset: 3px;
+}
