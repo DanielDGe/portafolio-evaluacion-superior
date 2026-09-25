@@ -24,6 +24,7 @@ export const routines = [
     description:
       'Análisis de semejanzas y diferencias para comprender mejor los sistemas de evaluación.',
     path: '/aprendizaje/compara-contrasta',
+    available: true,
   },
   {
     number: '04',
