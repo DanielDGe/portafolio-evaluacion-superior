@@ -394,3 +394,97 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+
+.instrument-context-card {
+  margin-bottom: 18px;
+  background: color-mix(in srgb, var(--mui-palette-primary-main) 4%, var(--mui-palette-background-paper));
+}
+
+.instrument-context-metrics {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(92px, 1fr));
+  gap: 10px;
+}
+
+.instrument-context-metrics > div {
+  min-width: 96px;
+  padding: 16px 14px;
+  display: grid;
+  gap: 3px;
+  text-align: center;
+  border-radius: 14px;
+  border: 1px solid var(--mui-palette-divider);
+  background: var(--mui-palette-background-paper);
+}
+
+.instrument-context-metrics strong {
+  color: var(--mui-palette-primary-main);
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.instrument-context-metrics span {
+  color: var(--mui-palette-text-secondary);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.instrument-bank-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.instrument-bank-card {
+  grid-column: span 2;
+  min-height: 355px;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.instrument-bank-card:nth-child(4),
+.instrument-bank-card:nth-child(5) {
+  grid-column: span 3;
+}
+
+.instrument-bank-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 28%, var(--mui-palette-divider));
+}
+
+@media (max-width: 1050px) {
+  .instrument-bank-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .instrument-bank-card,
+  .instrument-bank-card:nth-child(4),
+  .instrument-bank-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .instrument-bank-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .instrument-context-metrics,
+  .instrument-bank-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instrument-bank-card,
+  .instrument-bank-card:last-child {
+    grid-column: auto;
+  }
+
+  .instrument-context-metrics {
+    width: 100%;
+  }
+
+  .instrument-context-metrics > div {
+    min-width: 0;
+  }
+}
