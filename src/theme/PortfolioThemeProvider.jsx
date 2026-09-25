@@ -8,6 +8,7 @@ const ColorModeContext = createContext({
 
 const buildTheme = (mode) =>
   createTheme({
+    cssVariables: true,
     palette: {
       mode,
       primary: {
