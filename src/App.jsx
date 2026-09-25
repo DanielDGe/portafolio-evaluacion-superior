@@ -5,6 +5,8 @@ const learningItems = [
     subtitle: 'Sé · Quiero saber · Aprendí',
     description:
       'Una mirada inicial y final a lo que sabía, lo que quería comprender y lo que realmente aprendí.',
+    available: true,
+    target: 'sqa-evidence',
   },
   {
     number: '02',
@@ -26,6 +28,23 @@ const learningItems = [
     subtitle: 'Construir sobre lo aprendido',
     description:
       'Conexiones con conocimientos previos, nuevas ideas y preguntas que todavía invitan a seguir aprendiendo.',
+  },
+]
+
+const sqaDocuments = [
+  {
+    phase: 'Parte I',
+    title: 'Punto de partida',
+    description:
+      'La primera parte de la rutina SQA recoge lo que sabía sobre la evaluación y aquello que quería comprender al iniciar la asignatura.',
+    file: 'Actividad No. 1 - Rutina SQA Parte 1.pdf',
+  },
+  {
+    phase: 'Parte II',
+    title: 'Aprendizaje y reflexión',
+    description:
+      'La segunda parte completa la rutina con lo aprendido e incorpora la reflexión metacognitiva desarrollada al cierre del proceso.',
+    file: 'Actividad No. 3 - SQA Parte II + Metacognición.pdf',
   },
 ]
 
@@ -168,9 +187,77 @@ function App() {
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
-                <span className="card-link">Próximamente <span>↗</span></span>
+                {item.available ? (
+                  <button
+                    className="card-link card-link-button"
+                    type="button"
+                    onClick={() => scrollTo(item.target)}
+                  >
+                    Ver evidencia <span>→</span>
+                  </button>
+                ) : (
+                  <span className="card-link">Próximamente <span>↗</span></span>
+                )}
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="section sqa-section" id="sqa-evidence">
+          <div className="sqa-heading">
+            <div>
+              <span className="section-kicker">Rutina 01 · SQA</span>
+              <h2>Del punto de partida a lo que realmente aprendí.</h2>
+            </div>
+            <p>
+              La rutina SQA me permitió hacer visible el proceso completo: reconocer mis
+              conocimientos iniciales, formular lo que quería aprender y volver al final
+              para identificar los aprendizajes construidos.
+            </p>
+          </div>
+
+          <div className="sqa-flow" aria-hidden="true">
+            <span><strong>S</strong> ¿Qué sé?</span>
+            <i>→</i>
+            <span><strong>Q</strong> ¿Qué quiero saber?</span>
+            <i>→</i>
+            <span><strong>A</strong> ¿Qué aprendí?</span>
+          </div>
+
+          <div className="document-grid">
+            {sqaDocuments.map((document) => {
+              const documentUrl = `${import.meta.env.BASE_URL}documents/${encodeURIComponent(document.file)}`
+
+              return (
+                <article className="document-card" key={document.phase}>
+                  <div className="document-card-top">
+                    <span className="document-phase">{document.phase}</span>
+                    <span className="pdf-badge">PDF</span>
+                  </div>
+                  <div>
+                    <h3>{document.title}</h3>
+                    <p>{document.description}</p>
+                  </div>
+                  <a
+                    className="document-link"
+                    href={documentUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Abrir evidencia
+                    <span>↗</span>
+                  </a>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="sqa-note">
+            <span className="note-icon">✓</span>
+            <p>
+              Ambas evidencias están publicadas en formato PDF para conservar el formato
+              original del trabajo y permitir su consulta directa desde el portafolio.
+            </p>
           </div>
         </section>
 
