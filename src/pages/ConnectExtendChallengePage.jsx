@@ -29,7 +29,7 @@ const stages = [
     subtitle: 'Relacionar con lo que ya sabía',
     icon: HubOutlined,
     text:
-      'Partí de una idea de calidad educativa relacionada con el cumplimiento de objetivos y con la evaluación como un medio para conocer resultados y orientar mejoras.',
+      'Partí de una idea de calidad educativa vinculada al cumplimiento de objetivos y a la evaluación como medio para conocer resultados y orientar mejoras.',
   },
   {
     title: 'Extender',
@@ -96,28 +96,21 @@ export default function ConnectExtendChallengePage() {
 
       <Card sx={{ mt: 2.25 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-          <Stack
-            direction={{ xs: 'column', md: 'row' }}
-            spacing={3}
-            justifyContent="space-between"
-            alignItems={{ xs: 'flex-start', md: 'center' }}
-          >
-            <Box sx={{ maxWidth: 760 }}>
-              <Box className="routine-section-icon" sx={{ mb: 2 }}>
-                <DescriptionOutlined />
-              </Box>
-              <Typography variant="overline" color="primary.main" fontWeight={800}>
-                Evidencia principal
-              </Typography>
-              <Typography variant="h5" fontWeight={800} sx={{ mt: 0.5 }}>
-                Rutina desarrollada
-              </Typography>
-              <Typography color="text.secondary" lineHeight={1.8} sx={{ mt: 1.5 }}>
-                El documento contiene el desarrollo completo de los apartados Conectar,
-                Extender y Desafiar utilizados para organizar la reflexión sobre calidad
-                educativa, evaluación y mejora continua.
-              </Typography>
+          <Box sx={{ maxWidth: 820 }}>
+            <Box className="routine-section-icon" sx={{ mb: 2 }}>
+              <DescriptionOutlined />
             </Box>
+            <Typography variant="overline" color="primary.main" fontWeight={800}>
+              Evidencia principal
+            </Typography>
+            <Typography variant="h5" fontWeight={800} sx={{ mt: 0.5 }}>
+              Rutina desarrollada
+            </Typography>
+            <Typography color="text.secondary" lineHeight={1.8} sx={{ mt: 1.5 }}>
+              El documento contiene el desarrollo completo de los apartados Conectar,
+              Extender y Desafiar utilizados para organizar la reflexión sobre calidad
+              educativa, evaluación y mejora continua.
+            </Typography>
 
             <Button
               component="a"
@@ -125,11 +118,13 @@ export default function ConnectExtendChallengePage() {
               target="_blank"
               rel="noreferrer"
               variant="contained"
+              size="small"
               endIcon={<OpenInNewRounded />}
+              sx={{ mt: 2.5, px: 2, alignSelf: 'flex-start' }}
             >
               Abrir evidencia PDF
             </Button>
-          </Stack>
+          </Box>
         </CardContent>
       </Card>
 
