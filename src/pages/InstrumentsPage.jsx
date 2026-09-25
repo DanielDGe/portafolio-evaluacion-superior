@@ -183,33 +183,26 @@ export default function InstrumentsPage() {
 
       <Card sx={{ mt: 2.25 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-          <Stack
-            direction={{ xs: 'column', md: 'row' }}
-            spacing={3}
-            justifyContent="space-between"
-            alignItems={{ xs: 'flex-start', md: 'center' }}
-          >
-            <Box sx={{ maxWidth: 760 }}>
-              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
-                <Box className="routine-section-icon">
-                  <DescriptionOutlined />
-                </Box>
-                <Box>
-                  <Typography variant="overline" color="primary.main" fontWeight={800}>
-                    Evidencia completa
-                  </Typography>
-                  <Typography variant="h5" fontWeight={800}>
-                    Banco de instrumentos
-                  </Typography>
-                </Box>
-              </Stack>
+          <Box sx={{ maxWidth: 820 }}>
+            <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
+              <Box className="routine-section-icon">
+                <DescriptionOutlined />
+              </Box>
+              <Box>
+                <Typography variant="overline" color="primary.main" fontWeight={800}>
+                  Evidencia completa
+                </Typography>
+                <Typography variant="h5" fontWeight={800}>
+                  Banco de instrumentos
+                </Typography>
+              </Box>
+            </Stack>
 
-              <Typography color="text.secondary" lineHeight={1.8}>
-                El documento completo reúne las cinco fichas didácticas, sus objetivos e
-                indicadores de logro, instrucciones de aplicación, instrumentos desarrollados,
-                criterios de valoración y materiales de apoyo.
-              </Typography>
-            </Box>
+            <Typography color="text.secondary" lineHeight={1.8}>
+              El documento completo reúne las cinco fichas didácticas, sus objetivos e
+              indicadores de logro, instrucciones de aplicación, instrumentos desarrollados,
+              criterios de valoración y materiales de apoyo.
+            </Typography>
 
             <Button
               component="a"
@@ -217,11 +210,13 @@ export default function InstrumentsPage() {
               target="_blank"
               rel="noreferrer"
               variant="contained"
+              size="small"
               endIcon={<OpenInNewRounded />}
+              sx={{ mt: 2.5, px: 2 }}
             >
               Abrir banco completo
             </Button>
-          </Stack>
+          </Box>
         </CardContent>
       </Card>
 
