@@ -33,6 +33,7 @@ export const routines = [
     description:
       'Conexiones con conocimientos previos, nuevas ideas y preguntas que invitan a seguir aprendiendo.',
     path: '/aprendizaje/conectar-extender-desafiar',
+    available: true,
   },
 ]
 
