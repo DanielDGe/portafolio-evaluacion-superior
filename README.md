@@ -1,42 +1,53 @@
 # Portafolio Digital — Sistemas de Evaluación aplicados a la Educación Superior
 
-Portafolio digital académico de **Daniel García**, desarrollado como proyecto final de la asignatura **Sistemas de Evaluación aplicados a la Educación Superior**.
+Proyecto final académico de **Daniel García**, desarrollado como una aplicación web para presentar evidencias, reflexión y aprendizaje de la asignatura.
 
 ## Stack
 
-- React
-- Vite
-- CSS
+- React + Vite
+- Material UI (MUI)
+- React Router
+- Framer Motion
 - GitHub Pages
 
 ## Desarrollo local
 
 ```bash
-git clone https://github.com/DanielDGe/portafolio-evaluacion-superior.git
-cd portafolio-evaluacion-superior
+git pull
 npm install
 npm run dev
 ```
 
-## Build
+Después de esta refactorización es necesario ejecutar `npm install` porque se incorporaron nuevas dependencias.
 
-```bash
-npm run build
-npm run preview
-```
+## Arquitectura
 
-## Estructura prevista del portafolio
+El portafolio utiliza navegación lateral y pantallas independientes:
 
-- Presentación y propósito
-- Identificación del autor
-- Rutina SQA
-- Rutina Veo, pienso, me pregunto
-- Rutina Compara y contrasta
-- Rutina Conectar, extender, desafiar
-- Banco de instrumentos de evaluación
+- Inicio
+- Propósito
+- Aprendizaje
+  - SQA
+  - Veo, pienso, me pregunto
+  - Compara y contrasta
+  - Conectar, extender, desafiar
+- Banco de instrumentos
 - Metacognición / Autoevaluación
+- Sobre mí
 - Referencias
 
-## Estado
+La navegación usa `HashRouter` para ser compatible con GitHub Pages sin configuración adicional de rutas.
 
-Base inicial del proyecto. Las evidencias académicas se incorporarán progresivamente.
+## Tema visual
+
+- Modo claro académico por defecto.
+- Modo oscuro opcional.
+- El tema seleccionado se conserva en `localStorage`.
+- La identidad queda preparada para incorporar posteriormente el logo institucional de ISAE Universidad.
+
+## Evidencias
+
+Los documentos se publican en `public/documents/` usando nombres seguros para web. Actualmente:
+
+- `sqa-parte-1.pdf`
+- `sqa-parte-2-metacognicion.pdf`
