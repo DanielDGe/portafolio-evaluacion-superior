@@ -50,8 +50,9 @@ const questions = [
 ]
 
 export default function ObserveThinkWonderPage() {
-  const [imageOpen, setImageOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(null)
   const evidenceImage = import.meta.env.BASE_URL + 'images/foro-observo-pienso-me-pregunto.png'
+  const peerResponsesImage = import.meta.env.BASE_URL + 'images/respuestas-companeros-foro-ia.png'
 
   return (
     <Box className="page-shell">
@@ -160,6 +161,78 @@ export default function ObserveThinkWonderPage() {
             >
               <Box>
                 <Typography variant="overline" color="primary.main" fontWeight={800}>
+                  Interacción con mis compañeros
+                </Typography>
+                <Typography variant="h6" fontWeight={800}>
+                  Respuestas a la pregunta compartida
+                </Typography>
+              </Box>
+              <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+            </Stack>
+
+            <Typography color="text.secondary" lineHeight={1.75} sx={{ mb: 2 }}>
+              La pregunta generó tres respuestas dentro del foro. Para conservar la evidencia
+              tal como fue publicada, presento las intervenciones originales en la siguiente captura.
+            </Typography>
+
+            <Box
+              component="button"
+              type="button"
+              onClick={() =>
+                setSelectedImage({
+                  src: peerResponsesImage,
+                  alt: 'Respuestas de compañeras a la pregunta sobre inteligencia artificial y evaluación',
+                })
+              }
+              aria-label="Ampliar respuestas de compañeros"
+              className="forum-evidence-button"
+            >
+              <Box
+                component="img"
+                src={peerResponsesImage}
+                alt="Respuestas de compañeras a la pregunta sobre inteligencia artificial y evaluación"
+                className="forum-evidence-image"
+              />
+              <Box className="forum-evidence-overlay">
+                <OpenInFullRounded />
+                <Typography fontWeight={700}>Ampliar respuestas</Typography>
+              </Box>
+            </Box>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography variant="overline" color="primary.main" fontWeight={800}>
+              Lo que me dejó el intercambio
+            </Typography>
+            <Typography color="text.secondary" lineHeight={1.82} sx={{ mt: 1.5 }}>
+              Las respuestas de mis compañeros reforzaron una idea que considero fundamental:
+              ante el uso de la inteligencia artificial, la evaluación debe centrarse cada vez
+              más en el proceso y no únicamente en el producto final. Surgieron propuestas como
+              la explicación oral, la resolución de problemas, los proyectos contextualizados,
+              las bitácoras y la argumentación de las decisiones tomadas.
+            </Typography>
+            <Typography color="text.secondary" lineHeight={1.82} sx={{ mt: 1.5 }}>
+              También me pareció interesante la posibilidad de incorporar la inteligencia
+              artificial dentro de algunas actividades de evaluación, siempre que exista
+              transparencia sobre su uso y que el estudiante pueda demostrar qué aportó
+              personalmente, cómo tomó sus decisiones y qué aprendió durante el proceso.
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent sx={{ p: { xs: 2.25, md: 3 } }}>
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              justifyContent="space-between"
+              alignItems={{ xs: 'flex-start', sm: 'center' }}
+              spacing={1}
+              sx={{ mb: 2 }}
+            >
+              <Box>
+                <Typography variant="overline" color="primary.main" fontWeight={800}>
                   Evidencia visual
                 </Typography>
                 <Typography variant="h6" fontWeight={800}>
@@ -172,7 +245,12 @@ export default function ObserveThinkWonderPage() {
             <Box
               component="button"
               type="button"
-              onClick={() => setImageOpen(true)}
+              onClick={() =>
+                setSelectedImage({
+                  src: evidenceImage,
+                  alt: 'Captura de la participación de Daniel García en el foro Observo, Pienso, Me pregunto',
+                })
+              }
               aria-label="Ampliar captura del foro"
               className="forum-evidence-button"
             >
@@ -196,24 +274,29 @@ export default function ObserveThinkWonderPage() {
       </Stack>
 
       <Dialog
-        open={imageOpen}
-        onClose={() => setImageOpen(false)}
+        open={Boolean(selectedImage)}
+        onClose={() => setSelectedImage(null)}
         maxWidth="xl"
         fullWidth
         PaperProps={{ sx: { bgcolor: 'background.paper' } }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
-          <IconButton onClick={() => setImageOpen(false)} aria-label="Cerrar evidencia ampliada">
+          <IconButton
+            onClick={() => setSelectedImage(null)}
+            aria-label="Cerrar evidencia ampliada"
+          >
             <CloseRounded />
           </IconButton>
         </Box>
         <DialogContent sx={{ pt: 0, pb: 3 }}>
-          <Box
-            component="img"
-            src={evidenceImage}
-            alt="Captura ampliada de la participación en Canvas"
-            sx={{ display: 'block', width: '100%', height: 'auto', borderRadius: 1 }}
-          />
+          {selectedImage && (
+            <Box
+              component="img"
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              sx={{ display: 'block', width: '100%', height: 'auto', borderRadius: 1 }}
+            />
+          )}
         </DialogContent>
       </Dialog>
     </Box>
