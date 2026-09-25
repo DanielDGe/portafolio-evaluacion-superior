@@ -10,11 +10,12 @@ export const routines = [
   },
   {
     number: '02',
-    title: 'Veo, pienso, me pregunto',
+    title: 'Observo, pienso, me pregunto',
     subtitle: 'Observar antes de concluir',
     description:
       'Una rutina para distinguir observación, interpretación y preguntas dentro del análisis educativo.',
-    path: '/aprendizaje/veo-pienso-me-pregunto',
+    path: '/aprendizaje/observo-pienso-me-pregunto',
+    available: true,
   },
   {
     number: '03',
