@@ -3,7 +3,6 @@ import {
   CloseRounded,
   CompareArrowsOutlined,
   DescriptionOutlined,
-  ForumOutlined,
   OpenInFullRounded,
   OpenInNewRounded,
   PlayCircleOutlineRounded,
