@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage.jsx'
 import PurposePage from './pages/PurposePage.jsx'
 import LearningPage, { RoutinePlaceholder } from './pages/LearningPage.jsx'
 import SqaPage from './pages/SqaPage.jsx'
+import ObserveThinkWonderPage from './pages/ObserveThinkWonderPage.jsx'
 import InstrumentsPage from './pages/InstrumentsPage.jsx'
 import ReflectionPage from './pages/ReflectionPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
@@ -19,14 +20,8 @@ function App() {
           <Route path="aprendizaje" element={<LearningPage />} />
           <Route path="aprendizaje/sqa" element={<SqaPage />} />
           <Route
-            path="aprendizaje/veo-pienso-me-pregunto"
-            element={
-              <RoutinePlaceholder
-                title="Veo, pienso, me pregunto"
-                subtitle="Rutina de pensamiento"
-                description="Esta sección incorporará la evidencia completa de la rutina centrada en observar, interpretar y formular preguntas."
-              />
-            }
+            path="aprendizaje/observo-pienso-me-pregunto"
+            element={<ObserveThinkWonderPage />}
           />
           <Route
             path="aprendizaje/compara-contrasta"
