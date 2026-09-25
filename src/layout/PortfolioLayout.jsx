@@ -147,7 +147,7 @@ function Sidebar({ onNavigate }) {
 
   return (
     <Stack sx={{ height: '100%', py: 2 }}>
-      <Box sx={{ px: 2.5, pb: 2 }}>
+      <Box sx={{ px: 2.5, pb: 1.5 }}>
         <Stack direction="row" spacing={1.4} alignItems="center">
           <Box
             sx={{
@@ -181,16 +181,16 @@ function Sidebar({ onNavigate }) {
           rel="noreferrer"
           aria-label="Visitar el sitio oficial de ISAE Universidad"
           sx={{
-            mt: 2,
-            p: 1.1,
+            mt: 1.25,
+            p: 0.8,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: 48,
+            minHeight: 42,
             border: 1,
             borderColor: 'divider',
             borderRadius: 2,
-            bgcolor: '#FFFFFF',
+            bgcolor: mode === 'light' ? '#FFFFFF' : '#F8FAFC',
             textDecoration: 'none',
             transition: 'border-color 160ms ease, transform 160ms ease',
             '&:hover': {
@@ -206,7 +206,7 @@ function Sidebar({ onNavigate }) {
             sx={{
               display: 'block',
               width: '100%',
-              maxWidth: 205,
+              maxWidth: 188,
               height: 'auto',
               objectFit: 'contain',
             }}
