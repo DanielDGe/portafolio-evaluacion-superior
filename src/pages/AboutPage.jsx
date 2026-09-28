@@ -6,7 +6,6 @@ import {
   TerminalRounded,
 } from '@mui/icons-material'
 import {
-  Avatar,
   Box,
   Card,
   CardContent,
@@ -57,14 +56,13 @@ export default function AboutPage() {
             spacing={{ xs: 3, md: 4 }}
             alignItems="flex-start"
           >
-            <Avatar
-              className="about-avatar"
+            <Box
+              component="img"
+              className="about-photo"
               src={profilePhoto}
               alt="Daniel García"
-              imgProps={{ loading: 'eager' }}
-            >
-              DG
-            </Avatar>
+              loading="eager"
+            />
 
             <Box sx={{ flex: 1 }}>
               <Typography variant="overline" color="primary.main" fontWeight={800}>
