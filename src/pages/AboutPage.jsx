@@ -37,6 +37,8 @@ const profileAreas = [
 ]
 
 export default function AboutPage() {
+  const profilePhoto = import.meta.env.BASE_URL + 'images/daniel-garcia.jpg'
+
   return (
     <Box className="page-shell">
       <Box className="page-heading">
@@ -55,7 +57,14 @@ export default function AboutPage() {
             spacing={{ xs: 3, md: 4 }}
             alignItems={{ xs: 'flex-start', md: 'center' }}
           >
-            <Avatar className="about-avatar">DG</Avatar>
+            <Avatar
+              className="about-avatar"
+              src={profilePhoto}
+              alt="Daniel García"
+              imgProps={{ loading: 'eager' }}
+            >
+              DG
+            </Avatar>
 
             <Box sx={{ flex: 1 }}>
               <Typography variant="overline" color="primary.main" fontWeight={800}>
