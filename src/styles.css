@@ -576,14 +576,14 @@ a {
 }
 
 .about-photo {
-  width: 122px;
-  height: 142px;
+  width: 118px;
+  height: 118px;
   flex: 0 0 auto;
   margin-top: 2px;
   display: block;
   object-fit: cover;
-  object-position: center 22%;
-  border-radius: 16px;
+  object-position: center 24%;
+  border-radius: 50%;
 }
 
 .about-code-panel {
