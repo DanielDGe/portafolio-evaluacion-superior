@@ -580,8 +580,6 @@ a {
   height: 118px !important;
   flex: 0 0 auto;
   margin-top: 2px;
-  border: 4px solid var(--mui-palette-background-paper);
-  box-shadow: 0 0 0 1px var(--mui-palette-divider), 0 10px 24px rgba(15, 35, 59, 0.10);
   font-size: 1.75rem !important;
   font-weight: 800 !important;
   color: var(--mui-palette-primary-contrastText) !important;
