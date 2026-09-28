@@ -55,7 +55,7 @@ export default function AboutPage() {
           <Stack
             direction={{ xs: 'column', md: 'row' }}
             spacing={{ xs: 3, md: 4 }}
-            alignItems={{ xs: 'flex-start', md: 'center' }}
+            alignItems="flex-start"
           >
             <Avatar
               className="about-avatar"
