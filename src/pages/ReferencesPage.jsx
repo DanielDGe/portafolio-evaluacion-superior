@@ -17,8 +17,8 @@ import {
 
 const academicSources = [
   {
-    title: 'Consejo Nacional de Evaluación y Acreditación Universitaria de Panamá',
-    detail: 'Leyes y marco normativo relacionado con evaluación y acreditación universitaria.',
+    title: 'Consejo Nacional de Evaluación y Acreditación Universitaria de Panamá. (s. f.)',
+    detail: 'Leyes.',
     href: 'https://coneaupa.edu.pa/leyes/',
   },
   {
@@ -39,7 +39,7 @@ const academicSources = [
     href: 'https://doi.org/10.5688/ajpe7177',
   },
   {
-    title: 'U.S. Department of Education',
+    title: 'U.S. Department of Education. (s. f.)',
     detail: 'College accreditation.',
     href: 'https://www.ed.gov/laws-and-policy/higher-education-laws-and-policy/college-accreditation',
   },
@@ -53,7 +53,8 @@ const academicSources = [
 const courseMaterials = [
   {
     title: 'Hernández, T. (2015)',
-    detail: 'Técnicas e instrumentos de evaluación del aprendizaje. Presentación utilizada en el curso.',
+    detail:
+      'Técnicas e instrumentos de evaluación del aprendizaje [Presentación utilizada en el curso].',
   },
   {
     title: 'González-Rodríguez, G. M. (2025)',
@@ -63,24 +64,25 @@ const courseMaterials = [
   {
     title: 'ISAE Universidad. (2026)',
     detail:
-      'Formatos y guías de trabajo utilizados en las rutinas SQA, Compara y Contrasta, Conectar–Extender–Desafiar y Banco de Instrumentos de Evaluación.',
+      'Formatos y guías de trabajo de las rutinas SQA, Compara y Contrasta, Conectar–Extender–Desafiar y Banco de Instrumentos de Evaluación [Materiales del curso].',
   },
 ]
 
 const audiovisualSources = [
   {
-    title: 'Evaluación en los procesos de Enseñanza y Aprendizaje',
-    detail: 'Material audiovisual utilizado en el Foro Temático #1.',
+    title: 'Evaluación en los procesos de Enseñanza y Aprendizaje. (s. f.)',
+    detail: '[Video]. YouTube. Material utilizado en el Foro Temático #1.',
     href: 'https://youtu.be/eZnSXLPtth4',
   },
   {
-    title: 'Evaluación de los aprendizajes en la educación superior',
-    detail: 'Material audiovisual utilizado en el Foro Temático #1.',
+    title: 'Evaluación de los aprendizajes en la educación superior. (s. f.)',
+    detail: '[Video]. Vimeo. Material utilizado en el Foro Temático #1.',
     href: 'https://vimeo.com/1212428428',
   },
   {
-    title: 'Técnicas e Instrumentos de Evaluación',
-    detail: 'Video del Dr. Gustavo M. González-Rodríguez utilizado para el Banco de Instrumentos.',
+    title: 'González-Rodríguez, G. M. (s. f.)',
+    detail:
+      'Técnicas e Instrumentos de Evaluación [Video]. YouTube. Material utilizado para el Banco de Instrumentos.',
     href: 'https://www.youtube.com/watch?v=Tge-WpKIob0',
   },
 ]
@@ -261,9 +263,11 @@ export default function ReferencesPage() {
             Nota
           </Typography>
           <Typography color="text.secondary" lineHeight={1.8} sx={{ mt: 0.75 }}>
-            Las fuentes se mantienen vinculadas a las actividades en las que fueron utilizadas.
-            Los documentos internos del aula virtual se identifican como materiales del curso,
-            mientras que los recursos públicos conservan un enlace de consulta.
+            Las referencias se presentan con una estructura uniforme cercana a APA 7, utilizando
+            únicamente los datos disponibles en los materiales consultados. Cuando una fuente no
+            identifica fecha de publicación se emplea “s. f.”. Los documentos internos del aula
+            virtual se reconocen como materiales del curso y los recursos públicos conservan un
+            enlace directo de consulta.
           </Typography>
         </CardContent>
       </Card>
