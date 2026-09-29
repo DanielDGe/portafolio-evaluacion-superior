@@ -839,3 +839,41 @@ a {
     width: min(100%, 220px);
   }
 }
+
+
+.about-contact-card {
+  margin-top: 18px;
+  background: color-mix(in srgb, var(--mui-palette-primary-main) 4%, var(--mui-palette-background-paper));
+  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 24%, var(--mui-palette-divider));
+}
+
+.about-contact-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.about-contact-actions {
+  flex: 0 0 auto;
+  justify-content: flex-end;
+}
+
+.about-contact-actions .MuiButton-root {
+  min-height: 42px;
+  border-radius: 11px;
+  text-transform: none;
+  font-weight: 750;
+}
+
+@media (max-width: 900px) {
+  .about-contact-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-contact-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
