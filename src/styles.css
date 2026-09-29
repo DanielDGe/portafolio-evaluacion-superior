@@ -877,3 +877,17 @@ a {
     justify-content: flex-start;
   }
 }
+
+
+.about-contact-email {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--mui-palette-primary-main);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.about-contact-email:hover {
+  text-decoration: underline;
+}
