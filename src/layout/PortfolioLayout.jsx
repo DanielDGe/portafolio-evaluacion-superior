@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import {
   AppBar,
   Box,
@@ -244,6 +244,10 @@ export default function PortfolioLayout() {
   const theme = useTheme()
   const desktop = useMediaQuery(theme.breakpoints.up('md'))
   const location = useLocation()
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
 
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
