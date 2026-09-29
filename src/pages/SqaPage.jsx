@@ -15,7 +15,6 @@ import {
   Typography,
 } from '@mui/material'
 import { sqaDocuments } from '../data/portfolio.js'
-import EvidenceStatusChip from '../components/EvidenceStatusChip.jsx'
 
 const stages = [
   ['S', '¿Qué sé?', 'Reconocer los conocimientos y experiencias que ya tenía.'],
@@ -54,14 +53,11 @@ export default function SqaPage() {
           const documentUrl = import.meta.env.BASE_URL + 'documents/' + document.file
 
           return (
-            <Card key={document.phase} className="document-card-new evidence-card">
+            <Card key={document.phase} className="document-card-new">
               <CardContent sx={{ p: 3.5, flex: 1 }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
                   <Chip label={document.phase} size="small" color="primary" variant="outlined" />
-                  <Stack direction="row" spacing={0.8} alignItems="center">
-                    <EvidenceStatusChip />
-                    <Chip label="PDF" size="small" />
-                  </Stack>
+                  <Chip label="PDF" size="small" />
                 </Stack>
                 <Typography variant="h5" fontWeight={800} gutterBottom>
                   {document.title}
