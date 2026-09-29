@@ -21,7 +21,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import EvidenceStatusChip from '../components/EvidenceStatusChip.jsx'
 
 const metacognitionSteps = [
   {
@@ -122,19 +121,16 @@ export default function ReflectionPage() {
         ))}
       </Box>
 
-      <Card className="reflection-evidence-card evidence-card">
+      <Card className="reflection-evidence-card">
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
             <Box className="routine-section-icon">
               <DescriptionOutlined />
             </Box>
-            <Box sx={{ flex: 1 }}>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} justifyContent="space-between" alignItems={{ xs: 'flex-start', sm: 'center' }}>
-                <Typography variant="overline" color="primary.main" fontWeight={800}>
-                  Evidencia de origen
-                </Typography>
-                <EvidenceStatusChip />
-              </Stack>
+            <Box>
+              <Typography variant="overline" color="primary.main" fontWeight={800}>
+                Evidencia de origen
+              </Typography>
               <Typography variant="h5" fontWeight={800}>
                 SQA Parte II + Metacognición
               </Typography>
