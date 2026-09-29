@@ -32,7 +32,7 @@ const courseUnits = [
   {
     unit: 'Unidad IV',
     title: 'Calidad, autoevaluación y acreditación',
-    evidence: 'Conectar, extender, desafiar + SQA Parte II + Metacognición',
+    evidence: 'Conectar, extender, desafiar · SQA Parte II + Metacognición',
     icon: PsychologyAltOutlined,
   },
 ]
