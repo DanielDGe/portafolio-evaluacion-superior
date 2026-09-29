@@ -14,7 +14,7 @@ const courseUnits = [
   {
     unit: 'Unidad I',
     title: 'Marco conceptual de la evaluación',
-    evidence: 'SQA + Observo, pienso, me pregunto',
+    evidence: 'SQA Parte I + Observo, pienso, me pregunto',
     icon: MenuBookOutlined,
   },
   {
@@ -32,7 +32,7 @@ const courseUnits = [
   {
     unit: 'Unidad IV',
     title: 'Calidad, autoevaluación y acreditación',
-    evidence: 'Conectar, extender, desafiar + Metacognición',
+    evidence: 'Conectar, extender, desafiar + SQA Parte II / Metacognición',
     icon: PsychologyAltOutlined,
   },
 ]
