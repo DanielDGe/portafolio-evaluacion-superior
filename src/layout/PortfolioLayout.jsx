@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import {
   AppBar,
   Box,
@@ -74,45 +74,102 @@ const closingItems = [
   { label: 'Referencias', path: '/referencias', icon: SchoolOutlined },
 ]
 
+const visitedStorageKey = 'portfolio-visited-sections-v1'
+const navigablePaths = new Set(
+  [...mainItems, ...learningItems, ...closingItems].map(({ path }) => path),
+)
+
 function NavigationList({ onNavigate }) {
   const location = useLocation()
   const navigate = useNavigate()
+  const [visitedPaths, setVisitedPaths] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(visitedStorageKey) || '[]')
+      return Array.isArray(saved) ? saved : []
+    } catch {
+      return []
+    }
+  })
+
+  useEffect(() => {
+    if (!navigablePaths.has(location.pathname)) return
+
+    setVisitedPaths((current) => {
+      if (current.includes(location.pathname)) return current
+
+      const next = [...current, location.pathname]
+
+      try {
+        localStorage.setItem(visitedStorageKey, JSON.stringify(next))
+      } catch {
+        // The visual state still works for the current session if storage is unavailable.
+      }
+
+      return next
+    })
+  }, [location.pathname])
 
   const openPage = (path) => {
     navigate(path)
     onNavigate?.()
   }
 
-  const renderItem = ({ label, path, icon: Icon }) => (
-    <ListItemButton
-      key={path}
-      selected={location.pathname === path}
-      onClick={() => openPage(path)}
-      sx={{
-        mx: 1.25,
-        my: 0.35,
-        borderRadius: 2,
-        minHeight: 42,
-        '&.Mui-selected': {
-          bgcolor: 'primary.main',
-          color: 'primary.contrastText',
-          '&:hover': { bgcolor: 'primary.main' },
-          '& .MuiListItemIcon-root': { color: 'inherit' },
-        },
-      }}
-    >
-      <ListItemIcon sx={{ minWidth: 38, color: 'text.secondary' }}>
-        <Icon fontSize="small" />
-      </ListItemIcon>
-      <ListItemText
-        primary={label}
-        primaryTypographyProps={{
-          fontSize: 13.5,
-          fontWeight: location.pathname === path ? 700 : 550,
+  const renderItem = ({ label, path, icon: Icon }) => {
+    const isCurrent = location.pathname === path
+    const wasVisited = !isCurrent && visitedPaths.includes(path)
+
+    return (
+      <ListItemButton
+        key={path}
+        selected={isCurrent}
+        onClick={() => openPage(path)}
+        sx={{
+          mx: 1.25,
+          my: 0.35,
+          borderRadius: 2,
+          minHeight: 42,
+          '&.Mui-selected': {
+            bgcolor: 'primary.main',
+            color: 'primary.contrastText',
+            '&:hover': { bgcolor: 'primary.main' },
+            '& .MuiListItemIcon-root': { color: 'inherit' },
+          },
         }}
-      />
-    </ListItemButton>
-  )
+      >
+        <ListItemIcon
+          sx={{
+            minWidth: 38,
+            color: wasVisited ? 'primary.main' : 'text.secondary',
+            opacity: wasVisited ? 0.78 : 1,
+            transition: 'color 160ms ease, opacity 160ms ease',
+          }}
+        >
+          <Icon fontSize="small" />
+        </ListItemIcon>
+        <ListItemText
+          primary={label}
+          primaryTypographyProps={{
+            fontSize: 13.5,
+            fontWeight: isCurrent ? 700 : wasVisited ? 600 : 550,
+          }}
+        />
+        {wasVisited && (
+          <Box
+            aria-hidden="true"
+            sx={{
+              width: 5,
+              height: 5,
+              mr: 0.5,
+              flex: '0 0 auto',
+              borderRadius: '50%',
+              bgcolor: 'primary.main',
+              opacity: 0.48,
+            }}
+          />
+        )}
+      </ListItemButton>
+    )
+  }
 
   return (
     <>
