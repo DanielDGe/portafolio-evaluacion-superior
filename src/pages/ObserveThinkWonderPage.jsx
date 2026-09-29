@@ -19,6 +19,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import EvidenceStatusChip from '../components/EvidenceStatusChip.jsx'
 
 const sections = [
   {
@@ -150,7 +151,7 @@ export default function ObserveThinkWonderPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="evidence-card">
           <CardContent sx={{ p: { xs: 2.25, md: 3 } }}>
             <Stack
               direction={{ xs: 'column', sm: 'row' }}
@@ -167,7 +168,10 @@ export default function ObserveThinkWonderPage() {
                   Respuestas a la pregunta compartida
                 </Typography>
               </Box>
-              <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+              <Stack direction="row" spacing={0.8} useFlexGap flexWrap="wrap">
+                <EvidenceStatusChip />
+                <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+              </Stack>
             </Stack>
 
             <Typography color="text.secondary" lineHeight={1.75} sx={{ mb: 2 }}>
@@ -222,7 +226,7 @@ export default function ObserveThinkWonderPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="evidence-card">
           <CardContent sx={{ p: { xs: 2.25, md: 3 } }}>
             <Stack
               direction={{ xs: 'column', sm: 'row' }}
@@ -239,7 +243,10 @@ export default function ObserveThinkWonderPage() {
                   Publicación original en Canvas
                 </Typography>
               </Box>
-              <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+              <Stack direction="row" spacing={0.8} useFlexGap flexWrap="wrap">
+                <EvidenceStatusChip />
+                <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+              </Stack>
             </Stack>
 
             <Box
