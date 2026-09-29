@@ -185,10 +185,10 @@ function Sidebar({ onNavigate }) {
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: 2.5, pt: 2 }}>
         <Box>
           <Typography fontSize={11.5} fontWeight={700}>
-            Daniel García, Mgtr.
+            Mgtr. Daniel García
           </Typography>
           <Typography fontSize={10.5} color="text.secondary">
-            Desarrollo de Software
+            Ingeniería de Software · Docencia Superior
           </Typography>
         </Box>
         <Tooltip title={mode === 'light' ? 'Activar modo oscuro' : 'Activar modo claro'}>
