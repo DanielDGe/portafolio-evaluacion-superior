@@ -185,7 +185,7 @@ function Sidebar({ onNavigate }) {
       <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: 2.5, pt: 2 }}>
         <Box>
           <Typography fontSize={11.5} fontWeight={700}>
-            Daniel García
+            Daniel García, Mgtr.
           </Typography>
           <Typography fontSize={10.5} color="text.secondary">
             Desarrollo de Software
