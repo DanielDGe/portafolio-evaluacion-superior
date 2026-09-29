@@ -23,7 +23,7 @@ export default function HomePage() {
       <Box className="home-hero">
         <Box>
           <Chip
-            label="Sistemas de Evaluación aplicados a la Educación Superior"
+            label="Sistema de Evaluación Aplicada a la Educación Superior"
             color="primary"
             variant="outlined"
             size="small"
