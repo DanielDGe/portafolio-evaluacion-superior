@@ -37,6 +37,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { usePortfolioColorMode } from '../theme/PortfolioThemeProvider.jsx'
+import JourneyNavigation from '../components/JourneyNavigation.jsx'
 
 const drawerWidth = 292
 
@@ -268,6 +269,7 @@ export default function PortfolioLayout() {
             transition={{ duration: 0.22, ease: 'easeOut' }}
           >
             <Outlet />
+            <JourneyNavigation />
           </motion.div>
         </AnimatePresence>
       </Box>
