@@ -1,6 +1,7 @@
 import {
   ArrowBackRounded,
   ArrowForwardRounded,
+  CheckRounded,
 } from '@mui/icons-material'
 import {
   Box,
@@ -139,6 +140,66 @@ function JourneyButton({ item, direction, onNavigate }) {
   )
 }
 
+function JourneyCompletion() {
+  return (
+    <Stack
+      direction="row"
+      spacing={1.25}
+      alignItems="center"
+      justifyContent="flex-end"
+      sx={{
+        minHeight: 68,
+        px: { xs: 1.25, sm: 1.75 },
+        py: 1.25,
+        textAlign: 'right',
+      }}
+    >
+      <Box sx={{ minWidth: 0 }}>
+        <Typography
+          component="span"
+          sx={{
+            display: 'block',
+            color: 'text.secondary',
+            fontSize: 10.5,
+            fontWeight: 700,
+            letterSpacing: '.06em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Final
+        </Typography>
+        <Typography
+          component="span"
+          sx={{
+            display: 'block',
+            mt: 0.2,
+            fontSize: { xs: 11.5, sm: 13 },
+            fontWeight: 800,
+            lineHeight: 1.25,
+          }}
+        >
+          Recorrido completado
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          width: 34,
+          height: 34,
+          flex: '0 0 auto',
+          display: 'grid',
+          placeItems: 'center',
+          borderRadius: 1.5,
+          color: 'success.main',
+          bgcolor: 'action.hover',
+        }}
+      >
+        <CheckRounded fontSize="small" />
+      </Box>
+    </Stack>
+  )
+}
+
 export default function JourneyNavigation() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -237,11 +298,15 @@ export default function JourneyNavigation() {
           </Box>
 
           <Box sx={{ gridArea: 'next', minWidth: 0 }}>
-            <JourneyButton
-              item={next}
-              direction="next"
-              onNavigate={navigate}
-            />
+            {next ? (
+              <JourneyButton
+                item={next}
+                direction="next"
+                onNavigate={navigate}
+              />
+            ) : (
+              <JourneyCompletion />
+            )}
           </Box>
         </Box>
       </Paper>
