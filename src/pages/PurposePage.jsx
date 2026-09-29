@@ -41,8 +41,19 @@ export default function PurposePage() {
       <Card className="course-context-card">
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems={{ xs: 'flex-start', md: 'center' }}>
-            <Box className="routine-section-icon">
-              <SchoolOutlined />
+            <Box
+              component="a"
+              href="https://www.isaeuniversidad.ac.pa/"
+              target="_blank"
+              rel="noreferrer"
+              className="course-context-logo"
+              aria-label="Visitar el sitio oficial de ISAE Universidad"
+            >
+              <Box
+                component="img"
+                src="https://www.isaeuniversidad.ac.pa/wp-content/uploads/2023/06/Group-80.png"
+                alt="ISAE Universidad"
+              />
             </Box>
 
             <Box sx={{ flex: 1 }}>
