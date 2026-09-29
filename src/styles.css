@@ -807,3 +807,35 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+
+.course-context-logo {
+  flex: 0 0 178px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #ffffff;
+  text-decoration: none;
+  transition: transform 160ms ease;
+}
+
+.course-context-logo:hover {
+  transform: translateY(-1px);
+}
+
+.course-context-logo img {
+  display: block;
+  width: 100%;
+  max-width: 168px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .course-context-logo {
+    flex-basis: auto;
+    width: min(100%, 220px);
+  }
+}
