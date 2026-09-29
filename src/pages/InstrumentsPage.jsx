@@ -20,6 +20,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import EvidenceStatusChip from '../components/EvidenceStatusChip.jsx'
 
 const instruments = [
   {
@@ -181,17 +182,20 @@ export default function InstrumentsPage() {
         ))}
       </Box>
 
-      <Card sx={{ mt: 2.25 }}>
+      <Card className="evidence-card" sx={{ mt: 2.25 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ maxWidth: 820 }}>
             <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
               <Box className="routine-section-icon">
                 <DescriptionOutlined />
               </Box>
-              <Box>
-                <Typography variant="overline" color="primary.main" fontWeight={800}>
-                  Evidencia completa
-                </Typography>
+              <Box sx={{ flex: 1 }}>
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} justifyContent="space-between" alignItems={{ xs: 'flex-start', sm: 'center' }}>
+                  <Typography variant="overline" color="primary.main" fontWeight={800}>
+                    Evidencia completa
+                  </Typography>
+                  <EvidenceStatusChip />
+                </Stack>
                 <Typography variant="h5" fontWeight={800}>
                   Banco de instrumentos
                 </Typography>
