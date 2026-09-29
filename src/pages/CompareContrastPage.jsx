@@ -21,7 +21,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import EvidenceStatusChip from '../components/EvidenceStatusChip.jsx'
 
 export default function CompareContrastPage() {
   const [imageOpen, setImageOpen] = useState(false)
@@ -105,17 +104,14 @@ export default function CompareContrastPage() {
       </Box>
 
       <Box className="compare-evidence-grid">
-        <Card className="evidence-card">
+        <Card>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <Box className="routine-section-icon" sx={{ mb: 2 }}>
               <DescriptionOutlined />
             </Box>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}>
-              <Typography variant="overline" color="primary.main" fontWeight={800}>
-                Documento de apoyo
-              </Typography>
-              <EvidenceStatusChip />
-            </Stack>
+            <Typography variant="overline" color="primary.main" fontWeight={800}>
+              Documento de apoyo
+            </Typography>
             <Typography variant="h5" fontWeight={800} sx={{ mt: 0.5 }}>
               Rutina Compara y Contrasta
             </Typography>
@@ -135,17 +131,14 @@ export default function CompareContrastPage() {
           </CardContent>
         </Card>
 
-        <Card className="evidence-card">
+        <Card>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <Box className="routine-section-icon" sx={{ mb: 2 }}>
               <PlayCircleOutlineRounded />
             </Box>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}>
-              <Typography variant="overline" color="primary.main" fontWeight={800}>
-                Presentación audiovisual
-              </Typography>
-              <EvidenceStatusChip />
-            </Stack>
+            <Typography variant="overline" color="primary.main" fontWeight={800}>
+              Presentación audiovisual
+            </Typography>
             <Typography variant="h5" fontWeight={800} sx={{ mt: 0.5 }}>
               Video de la comparación
             </Typography>
@@ -166,7 +159,7 @@ export default function CompareContrastPage() {
         </Card>
       </Box>
 
-      <Card className="evidence-card" sx={{ mt: 2.25 }}>
+      <Card sx={{ mt: 2.25 }}>
         <CardContent sx={{ p: { xs: 2.25, md: 3 } }}>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -183,10 +176,7 @@ export default function CompareContrastPage() {
                 Publicación original en Canvas
               </Typography>
             </Box>
-            <Stack direction="row" spacing={0.8} useFlexGap flexWrap="wrap">
-              <EvidenceStatusChip />
-              <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
-            </Stack>
+            <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
           </Stack>
 
           <Typography color="text.secondary" lineHeight={1.75} sx={{ mb: 2 }}>
