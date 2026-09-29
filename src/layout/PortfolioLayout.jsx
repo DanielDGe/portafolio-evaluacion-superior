@@ -174,44 +174,6 @@ function Sidebar({ onNavigate }) {
           </Box>
         </Stack>
 
-        <Box
-          component="a"
-          href="https://www.isaeuniversidad.ac.pa/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Visitar el sitio oficial de ISAE Universidad"
-          sx={{
-            mt: 1.25,
-            p: 0.8,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: 42,
-            border: 1,
-            borderColor: 'divider',
-            borderRadius: 2,
-            bgcolor: mode === 'light' ? '#FFFFFF' : '#F8FAFC',
-            textDecoration: 'none',
-            transition: 'border-color 160ms ease, transform 160ms ease',
-            '&:hover': {
-              borderColor: 'primary.main',
-              transform: 'translateY(-1px)',
-            },
-          }}
-        >
-          <Box
-            component="img"
-            src="https://www.isaeuniversidad.ac.pa/wp-content/uploads/2023/06/Group-80.png"
-            alt="ISAE Universidad"
-            sx={{
-              display: 'block',
-              width: '100%',
-              maxWidth: 188,
-              height: 'auto',
-              objectFit: 'contain',
-            }}
-          />
-        </Box>
       </Box>
 
       <Divider />
