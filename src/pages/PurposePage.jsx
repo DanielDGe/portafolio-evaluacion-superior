@@ -1,5 +1,11 @@
 import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material'
-import { AutoAwesomeOutlined, HubOutlined, TimelineOutlined } from '@mui/icons-material'
+import {
+  AutoAwesomeOutlined,
+  BadgeOutlined,
+  HubOutlined,
+  SchoolOutlined,
+  TimelineOutlined,
+} from '@mui/icons-material'
 
 const ideas = [
   {
@@ -32,6 +38,36 @@ export default function PurposePage() {
           evaluación en educación superior.
         </Typography>
       </Box>
+
+      <Card className="course-context-card">
+        <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems={{ xs: 'flex-start', md: 'center' }}>
+            <Box className="routine-section-icon">
+              <SchoolOutlined />
+            </Box>
+
+            <Box sx={{ flex: 1 }}>
+              <Typography variant="overline" color="primary.main" fontWeight={800}>
+                Contexto académico
+              </Typography>
+              <Typography variant="h5" fontWeight={800} sx={{ mt: 0.35 }}>
+                Sistema de Evaluación Aplicada a la Educación Superior
+              </Typography>
+              <Typography color="text.secondary" lineHeight={1.75} sx={{ mt: 1 }}>
+                Asignatura de la Maestría en Docencia Superior orientada a comprender la
+                evaluación como parte del proceso de enseñanza-aprendizaje, la gestión de
+                la calidad y la acreditación en educación superior.
+              </Typography>
+            </Box>
+
+            <Box className="course-context-meta">
+              <span><b>Código</b>MDSVAC23407</span>
+              <span><b>Facilitador</b>Dr. Gustavo M. González-Rodríguez</span>
+              <span><b>Institución</b>ISAE Universidad · 2026</span>
+            </Box>
+          </Stack>
+        </CardContent>
+      </Card>
 
       <Box className="three-card-grid">
         {ideas.map(({ title, text, icon: Icon }) => (
