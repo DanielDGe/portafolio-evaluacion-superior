@@ -38,6 +38,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { usePortfolioColorMode } from '../theme/PortfolioThemeProvider.jsx'
 import JourneyNavigation from '../components/JourneyNavigation.jsx'
+import ReadingProgressBar from '../components/ReadingProgressBar.jsx'
 
 const drawerWidth = 292
 
@@ -214,6 +215,7 @@ export default function PortfolioLayout() {
 
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      <ReadingProgressBar />
       {!desktop && (
         <AppBar
           position="fixed"
