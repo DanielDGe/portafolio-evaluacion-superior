@@ -165,6 +165,13 @@ export default function AboutPage() {
                 Si deseas conversar sobre docencia universitaria, Desarrollo de Software
                 o algún proyecto tecnológico, puedes contactarme a través de estos medios.
               </Typography>
+              <Typography
+                component="a"
+                href="mailto:ddge07@gmail.com"
+                className="about-contact-email"
+              >
+                ddge07@gmail.com
+              </Typography>
             </Box>
 
             <Stack
