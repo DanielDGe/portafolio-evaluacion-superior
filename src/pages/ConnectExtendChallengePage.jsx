@@ -22,6 +22,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import EvidenceStatusChip from '../components/EvidenceStatusChip.jsx'
 
 const stages = [
   {
@@ -94,15 +95,18 @@ export default function ConnectExtendChallengePage() {
         ))}
       </Box>
 
-      <Card sx={{ mt: 2.25 }}>
+      <Card className="evidence-card" sx={{ mt: 2.25 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ maxWidth: 820 }}>
             <Box className="routine-section-icon" sx={{ mb: 2 }}>
               <DescriptionOutlined />
             </Box>
-            <Typography variant="overline" color="primary.main" fontWeight={800}>
-              Evidencia principal
-            </Typography>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}>
+              <Typography variant="overline" color="primary.main" fontWeight={800}>
+                Evidencia principal
+              </Typography>
+              <EvidenceStatusChip />
+            </Stack>
             <Typography variant="h5" fontWeight={800} sx={{ mt: 0.5 }}>
               Rutina desarrollada
             </Typography>
@@ -146,7 +150,7 @@ export default function ConnectExtendChallengePage() {
         </CardContent>
       </Card>
 
-      <Card sx={{ mt: 2.25 }}>
+      <Card className="evidence-card" sx={{ mt: 2.25 }}>
         <CardContent sx={{ p: { xs: 2.25, md: 3 } }}>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -163,7 +167,10 @@ export default function ConnectExtendChallengePage() {
                 Publicación e interacción en Canvas
               </Typography>
             </Box>
-            <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+            <Stack direction="row" spacing={0.8} useFlexGap flexWrap="wrap">
+              <EvidenceStatusChip />
+              <Chip icon={<OpenInFullRounded />} label="Clic para ampliar" size="small" />
+            </Stack>
           </Stack>
 
           <Typography color="text.secondary" lineHeight={1.75} sx={{ mb: 2 }}>
