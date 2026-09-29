@@ -6,7 +6,7 @@ import {
   MenuBookOutlined,
   PsychologyAltOutlined,
 } from '@mui/icons-material'
-import { Box, Button, Card, CardActions, CardContent, Chip, Stack, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, Chip, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { routines } from '../data/portfolio.js'
 
