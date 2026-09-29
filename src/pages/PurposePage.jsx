@@ -2,7 +2,6 @@ import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material'
 import {
   AutoAwesomeOutlined,
   HubOutlined,
-  SchoolOutlined,
   TimelineOutlined,
 } from '@mui/icons-material'
 
