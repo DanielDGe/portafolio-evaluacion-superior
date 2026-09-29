@@ -1,12 +1,16 @@
 import {
   AutoStoriesOutlined,
   CodeRounded,
+  GitHub,
+  LinkedIn,
+  MailOutlineRounded,
   PsychologyAltOutlined,
   SchoolOutlined,
   TerminalRounded,
 } from '@mui/icons-material'
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Chip,
@@ -144,6 +148,62 @@ export default function AboutPage() {
             soluciones, cometer errores dentro de un proceso acompañado y utilizar la evaluación
             como una oportunidad para reconocer qué logró y qué necesita seguir fortaleciendo.
           </Typography>
+        </CardContent>
+      </Card>
+
+      <Card className="about-contact-card">
+        <CardContent sx={{ p: { xs: 3.5, md: 4.5 } }}>
+          <Box className="about-contact-layout">
+            <Box>
+              <Typography variant="overline" color="primary.main" fontWeight={800}>
+                Contacto
+              </Typography>
+              <Typography variant="h5" fontWeight={800} sx={{ mt: 0.75 }}>
+                Conectemos.
+              </Typography>
+              <Typography color="text.secondary" lineHeight={1.8} sx={{ mt: 1.25, maxWidth: 720 }}>
+                Si deseas conversar sobre docencia universitaria, Desarrollo de Software
+                o algún proyecto tecnológico, puedes contactarme a través de estos medios.
+              </Typography>
+            </Box>
+
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={1.25}
+              useFlexGap
+              flexWrap="wrap"
+              className="about-contact-actions"
+            >
+              <Button
+                component="a"
+                href="mailto:ddge07@gmail.com"
+                variant="contained"
+                startIcon={<MailOutlineRounded />}
+              >
+                Enviar correo
+              </Button>
+              <Button
+                component="a"
+                href="https://www.linkedin.com/in/daniel-garcia-b318a5149"
+                target="_blank"
+                rel="noreferrer"
+                variant="outlined"
+                startIcon={<LinkedIn />}
+              >
+                LinkedIn
+              </Button>
+              <Button
+                component="a"
+                href="https://github.com/DanielDGe"
+                target="_blank"
+                rel="noreferrer"
+                variant="outlined"
+                startIcon={<GitHub />}
+              >
+                GitHub
+              </Button>
+            </Stack>
+          </Box>
         </CardContent>
       </Card>
     </Box>
