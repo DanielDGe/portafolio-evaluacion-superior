@@ -122,6 +122,7 @@ function NavigationList({ onNavigate }) {
       <ListItemButton
         key={path}
         selected={isCurrent}
+        aria-current={isCurrent ? 'page' : undefined}
         onClick={() => openPage(path)}
         sx={{
           mx: 1.25,
@@ -264,6 +265,7 @@ export default function PortfolioLayout() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const theme = useTheme()
   const desktop = useMediaQuery(theme.breakpoints.up('md'))
+  const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const location = useLocation()
 
   useLayoutEffect(() => {
@@ -322,10 +324,10 @@ export default function PortfolioLayout() {
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            initial={{ opacity: 0, y: 8 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
+            exit={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -6 }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.22, ease: 'easeOut' }}
           >
             <Outlet />
             <JourneyNavigation />
