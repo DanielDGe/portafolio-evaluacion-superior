@@ -50,7 +50,7 @@ export default function ReadingProgressBar() {
       aria-hidden="true"
       sx={{
         position: 'fixed',
-        top: { xs: 64, md: 0 },
+        top: { xs: 56, sm: 64, md: 0 },
         left: { xs: 0, md: `${drawerWidth}px` },
         right: 0,
         height: 3,
