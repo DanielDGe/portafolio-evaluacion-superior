@@ -157,7 +157,7 @@ export default function ConnectExtendChallengePage() {
           >
             <Box>
               <Typography variant="overline" color="primary.main" fontWeight={800}>
-                Interacción registrada hasta la fecha
+                Interacción en el foro
               </Typography>
               <Typography variant="h6" fontWeight={800}>
                 Publicación e interacción en Canvas
@@ -167,9 +167,8 @@ export default function ConnectExtendChallengePage() {
           </Stack>
 
           <Typography color="text.secondary" lineHeight={1.75} sx={{ mb: 2 }}>
-            La captura conserva la publicación original y la respuesta recibida hasta el momento.
-            Como el foro permanece abierto hasta el 4 de octubre de 2026, esta evidencia podrá
-            actualizarse si se incorporan nuevas intervenciones.
+            La captura conserva la publicación original y la respuesta recibida en el foro,
+            como parte de la interacción generada alrededor de la actividad.
           </Typography>
 
           <Box
