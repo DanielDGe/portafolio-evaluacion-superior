@@ -50,7 +50,7 @@ export default function PurposePage() {
             >
               <Box
                 component="img"
-                src="https://www.isaeuniversidad.ac.pa/wp-content/uploads/2023/06/Group-80.png"
+                src={import.meta.env.BASE_URL + 'images/logo-isae-universidad.png'}
                 alt="ISAE Universidad"
               />
             </Box>
