@@ -11,6 +11,8 @@ import {
   ListItemIcon,
   ListItemText,
   ListSubheader,
+  Menu,
+  MenuItem,
   Stack,
   Toolbar,
   Tooltip,
@@ -23,6 +25,7 @@ import {
   AutoStoriesOutlined,
   BalanceOutlined,
   Brightness4Outlined,
+  CheckRounded,
   Brightness7Outlined,
   ChevronRightRounded,
   CompareArrowsOutlined,
@@ -30,13 +33,17 @@ import {
   HomeOutlined,
   InfoOutlined,
   MenuRounded,
+  PaletteOutlined,
   PsychologyAltOutlined,
   QuestionAnswerOutlined,
   SchoolOutlined,
 } from '@mui/icons-material'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { usePortfolioColorMode } from '../theme/PortfolioThemeProvider.jsx'
+import {
+  portfolioPalettes,
+  usePortfolioColorMode,
+} from '../theme/PortfolioThemeProvider.jsx'
 import JourneyNavigation from '../components/JourneyNavigation.jsx'
 import ReadingProgressBar from '../components/ReadingProgressBar.jsx'
 
@@ -203,7 +210,15 @@ function NavigationList({ onNavigate }) {
 }
 
 function Sidebar({ onNavigate }) {
-  const { mode, toggleColorMode } = usePortfolioColorMode()
+  const { mode, paletteKey, setPaletteKey, toggleColorMode } = usePortfolioColorMode()
+  const [paletteAnchor, setPaletteAnchor] = useState(null)
+
+  const paletteOpen = Boolean(paletteAnchor)
+
+  const handlePaletteSelect = (nextPalette) => {
+    setPaletteKey(nextPalette)
+    setPaletteAnchor(null)
+  }
 
   return (
     <Stack sx={{ height: '100%', py: 2 }}>
@@ -242,8 +257,14 @@ function Sidebar({ onNavigate }) {
       </Box>
       <Divider />
 
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ px: 2.5, pt: 2 }}>
-        <Box>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        spacing={1}
+        sx={{ px: 2.5, pt: 2 }}
+      >
+        <Box sx={{ minWidth: 0 }}>
           <Typography fontSize={11.5} fontWeight={700}>
             Mgtr. Daniel García
           </Typography>
@@ -251,11 +272,110 @@ function Sidebar({ onNavigate }) {
             Ingeniería de Software · Docencia Superior
           </Typography>
         </Box>
-        <Tooltip title={mode === 'light' ? 'Activar modo oscuro' : 'Activar modo claro'}>
-          <IconButton onClick={toggleColorMode} size="small" aria-label="Cambiar tema">
-            {mode === 'light' ? <Brightness4Outlined /> : <Brightness7Outlined />}
-          </IconButton>
-        </Tooltip>
+
+        <Stack direction="row" spacing={0.25} sx={{ flex: '0 0 auto' }}>
+          <Tooltip title="Cambiar estilo visual">
+            <IconButton
+              onClick={(event) => setPaletteAnchor(event.currentTarget)}
+              size="small"
+              aria-label="Seleccionar estilo visual"
+              aria-controls={paletteOpen ? 'palette-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={paletteOpen ? 'true' : undefined}
+            >
+              <PaletteOutlined />
+            </IconButton>
+          </Tooltip>
+
+          <Tooltip title={mode === 'light' ? 'Activar modo oscuro' : 'Activar modo claro'}>
+            <IconButton
+              onClick={toggleColorMode}
+              size="small"
+              aria-label={mode === 'light' ? 'Activar modo oscuro' : 'Activar modo claro'}
+            >
+              {mode === 'light' ? <Brightness4Outlined /> : <Brightness7Outlined />}
+            </IconButton>
+          </Tooltip>
+        </Stack>
+
+        <Menu
+          id="palette-menu"
+          anchorEl={paletteAnchor}
+          open={paletteOpen}
+          onClose={() => setPaletteAnchor(null)}
+          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+          transformOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          slotProps={{
+            paper: {
+              sx: {
+                minWidth: 220,
+                mt: -0.5,
+                border: 1,
+                borderColor: 'divider',
+                boxShadow: '0 14px 38px rgba(16, 34, 54, 0.16)',
+              },
+            },
+          }}
+          MenuListProps={{ 'aria-label': 'Estilos visuales del portafolio' }}
+        >
+          <Box sx={{ px: 2, pt: 1, pb: 0.75 }}>
+            <Typography
+              variant="overline"
+              color="text.secondary"
+              fontWeight={800}
+              sx={{ letterSpacing: '.08em' }}
+            >
+              Estilo visual
+            </Typography>
+          </Box>
+
+          {Object.entries(portfolioPalettes).map(([key, palette]) => {
+            const selected = paletteKey === key
+
+            return (
+              <MenuItem
+                key={key}
+                selected={selected}
+                onClick={() => handlePaletteSelect(key)}
+                sx={{ gap: 1.25, py: 1.1 }}
+              >
+                <Stack direction="row" spacing={0.45} aria-hidden="true">
+                  {palette.swatches.map((color) => (
+                    <Box
+                      key={color}
+                      sx={{
+                        width: 13,
+                        height: 13,
+                        borderRadius: '50%',
+                        bgcolor: color,
+                        border: '1px solid',
+                        borderColor: 'divider',
+                      }}
+                    />
+                  ))}
+                </Stack>
+
+                <Typography
+                  variant="body2"
+                  fontWeight={selected ? 800 : 600}
+                  sx={{ flex: 1 }}
+                >
+                  {palette.label}
+                </Typography>
+
+                {selected && <CheckRounded fontSize="small" color="primary" />}
+              </MenuItem>
+            )
+          })}
+
+          <Divider sx={{ my: 0.75 }} />
+
+          <Box sx={{ px: 2, py: 0.75 }}>
+            <Typography variant="caption" color="text.secondary">
+              Combínalo con modo {mode === 'light' ? 'claro' : 'oscuro'}.
+            </Typography>
+          </Box>
+        </Menu>
       </Stack>
     </Stack>
   )
