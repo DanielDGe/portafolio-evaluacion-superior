@@ -20,7 +20,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import { Link as RouterLink } from 'react-router-dom'
+import PdfEvidenceDialog from '../components/PdfEvidenceDialog.jsx'
 
 const instruments = [
   {
@@ -76,6 +76,7 @@ const instruments = [
 ]
 
 export default function InstrumentsPage() {
+  const pdfFile = 'banco-instrumentos-evaluacion.pdf'
 
   return (
     <Box className="page-shell">
@@ -204,18 +205,15 @@ export default function InstrumentsPage() {
               criterios de valoración y materiales de apoyo.
             </Typography>
 
-            <Button
-              component={RouterLink}
-              to="/evidencia/banco-instrumentos"
-              target="_blank"
-              rel="noreferrer"
-              variant="contained"
-              size="small"
-              endIcon={<OpenInNewRounded />}
-              sx={{ mt: 2.5, px: 2 }}
-            >
-              Abrir banco completo
-            </Button>
+            <PdfEvidenceDialog
+              file={pdfFile}
+              title="Banco de instrumentos de evaluación"
+              subtitle="Documento completo"
+              buttonLabel="Abrir banco completo"
+              buttonVariant="contained"
+              buttonSize="small"
+              buttonSx={{ mt: 2.5, px: 2 }}
+            />
           </Box>
         </CardContent>
       </Card>
