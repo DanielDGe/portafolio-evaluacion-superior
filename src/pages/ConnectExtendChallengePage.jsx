@@ -6,13 +6,11 @@ import {
   ExtensionOutlined,
   HubOutlined,
   OpenInFullRounded,
-  OpenInNewRounded,
   PsychologyAltOutlined,
 } from '@mui/icons-material'
 import {
   Alert,
   Box,
-  Button,
   Card,
   CardContent,
   Chip,
