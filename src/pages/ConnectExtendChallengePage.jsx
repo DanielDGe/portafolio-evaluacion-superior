@@ -22,7 +22,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import { Link as RouterLink } from 'react-router-dom'
+import PdfEvidenceDialog from '../components/PdfEvidenceDialog.jsx'
 
 const stages = [
   {
@@ -51,6 +51,7 @@ const stages = [
 export default function ConnectExtendChallengePage() {
   const [imageOpen, setImageOpen] = useState(false)
 
+  const pdfFile = 'conectar-extender-desafiar.pdf'
   const forumImage = import.meta.env.BASE_URL + 'images/foro-conectar-extender-desafiar.png'
 
   return (
@@ -112,18 +113,15 @@ export default function ConnectExtendChallengePage() {
               educativa, evaluación y mejora continua.
             </Typography>
 
-            <Button
-              component={RouterLink}
-              to="/evidencia/conectar-extender-desafiar"
-              target="_blank"
-              rel="noreferrer"
-              variant="contained"
-              size="small"
-              endIcon={<OpenInNewRounded />}
-              sx={{ mt: 2.5, px: 2, alignSelf: 'flex-start' }}
-            >
-              Abrir evidencia PDF
-            </Button>
+            <PdfEvidenceDialog
+              file={pdfFile}
+              title="Conectar, extender, desafiar"
+              subtitle="Rutina desarrollada"
+              buttonLabel="Abrir evidencia PDF"
+              buttonVariant="contained"
+              buttonSize="small"
+              buttonSx={{ mt: 2.5, px: 2, alignSelf: 'flex-start' }}
+            />
           </Box>
         </CardContent>
       </Card>
