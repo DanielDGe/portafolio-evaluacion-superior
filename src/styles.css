@@ -891,3 +891,83 @@ a {
 .about-contact-email:hover {
   text-decoration: underline;
 }
+
+
+/* Branded PDF evidence viewer */
+.evidence-viewer-page {
+  padding-top: 42px;
+}
+
+.evidence-viewer-card {
+  overflow: hidden;
+}
+
+.evidence-viewer-toolbar {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--mui-palette-divider);
+  background: color-mix(
+    in srgb,
+    var(--mui-palette-primary-main) 3%,
+    var(--mui-palette-background-paper)
+  );
+}
+
+.evidence-viewer-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: var(--mui-palette-primary-main);
+  background: color-mix(
+    in srgb,
+    var(--mui-palette-primary-main) 10%,
+    transparent
+  );
+}
+
+.evidence-viewer-frame-wrap {
+  min-height: 720px;
+  height: calc(100vh - 235px);
+  background: color-mix(
+    in srgb,
+    var(--mui-palette-text-primary) 5%,
+    var(--mui-palette-background-default)
+  );
+}
+
+.evidence-viewer-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  border: 0;
+  background: var(--mui-palette-background-paper);
+}
+
+.evidence-viewer-fallback {
+  padding: 14px 24px 18px;
+  border-top: 1px solid var(--mui-palette-divider);
+}
+
+@media (max-width: 760px) {
+  .evidence-viewer-page {
+    width: min(100% - 20px, 1180px);
+    padding-top: 24px;
+  }
+
+  .evidence-viewer-toolbar {
+    padding: 18px;
+  }
+
+  .evidence-viewer-frame-wrap,
+  .evidence-viewer-frame {
+    min-height: 620px;
+    height: calc(100vh - 260px);
+  }
+
+  .evidence-viewer-fallback {
+    padding: 12px 18px 16px;
+  }
+}
