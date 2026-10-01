@@ -11,6 +11,7 @@ import InstrumentsPage from './pages/InstrumentsPage.jsx'
 import ReflectionPage from './pages/ReflectionPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import ReferencesPage from './pages/ReferencesPage.jsx'
+import EvidenceViewerPage from './pages/EvidenceViewerPage.jsx'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="metacognicion" element={<ReflectionPage />} />
           <Route path="autor" element={<AboutPage />} />
           <Route path="referencias" element={<ReferencesPage />} />
+          <Route path="evidencia/:evidenceId" element={<EvidenceViewerPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
