@@ -1,7 +1,6 @@
 import {
   ArrowForwardRounded,
   CheckCircleOutlineRounded,
-  OpenInNewRounded,
 } from '@mui/icons-material'
 import {
   Alert,
@@ -15,7 +14,7 @@ import {
   Typography,
 } from '@mui/material'
 import { sqaDocuments } from '../data/portfolio.js'
-import { Link as RouterLink } from 'react-router-dom'
+import PdfEvidenceDialog from '../components/PdfEvidenceDialog.jsx'
 
 const stages = [
   ['S', '¿Qué sé?', 'Reconocer los conocimientos y experiencias que ya tenía.'],
@@ -50,10 +49,8 @@ export default function SqaPage() {
       </Box>
 
       <Box className="document-grid-new">
-        {sqaDocuments.map((document) => {
-          const evidenceId = document.phase === 'Parte I' ? 'sqa-parte-1' : 'sqa-parte-2'
+        {sqaDocuments.map((document) => (
 
-          return (
             <Card key={document.phase} className="document-card-new">
               <CardContent sx={{ p: 3.5, flex: 1 }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
@@ -68,19 +65,15 @@ export default function SqaPage() {
                 </Typography>
               </CardContent>
               <CardActions sx={{ px: 3.5, pb: 3.5 }}>
-                <Button
-                  component={RouterLink}
-                  to={`/evidencia/${evidenceId}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  endIcon={<OpenInNewRounded />}
-                >
-                  Abrir evidencia
-                </Button>
+                <PdfEvidenceDialog
+                  file={document.file}
+                  title={`SQA · ${document.phase}`}
+                  subtitle={document.title}
+                  buttonLabel="Abrir evidencia"
+                />
               </CardActions>
             </Card>
-          )
-        })}
+        ))}
       </Box>
 
       <Alert
