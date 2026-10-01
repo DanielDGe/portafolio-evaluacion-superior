@@ -267,6 +267,7 @@ export default function PortfolioLayout() {
   const desktop = useMediaQuery(theme.breakpoints.up('md'))
   const reduceMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   const location = useLocation()
+  const navigate = useNavigate()
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -289,7 +290,16 @@ export default function PortfolioLayout() {
             <Typography sx={{ ml: 1.5, fontWeight: 800, flex: 1 }}>
               Portafolio Digital
             </Typography>
-            <SchoolOutlined color="primary" />
+            <Tooltip title="Ir a Inicio">
+              <IconButton
+                onClick={() => navigate('/')}
+                size="small"
+                color="primary"
+                aria-label="Ir a Inicio"
+              >
+                <SchoolOutlined />
+              </IconButton>
+            </Tooltip>
           </Toolbar>
         </AppBar>
       )}
