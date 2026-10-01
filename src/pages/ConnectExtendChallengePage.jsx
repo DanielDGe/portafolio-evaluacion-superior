@@ -170,7 +170,10 @@ export default function ConnectExtendChallengePage() {
           <Box
             component="button"
             type="button"
-            onClick={() => setImageOpen(true)}
+            onClick={(event) => {
+              event.currentTarget.blur()
+              setImageOpen(true)
+            }}
             aria-label="Ampliar evidencia del Foro Temático #3"
             className="forum-evidence-button"
           >
