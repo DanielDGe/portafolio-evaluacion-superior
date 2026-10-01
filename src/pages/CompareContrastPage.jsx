@@ -21,11 +21,12 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import { Link as RouterLink } from 'react-router-dom'
+import PdfEvidenceDialog from '../components/PdfEvidenceDialog.jsx'
 
 export default function CompareContrastPage() {
   const [imageOpen, setImageOpen] = useState(false)
 
+  const pdfFile = 'compara-y-contrasta.pdf'
   const forumImage = import.meta.env.BASE_URL + 'images/foro-compara-y-contrasta.png'
   const videoUrl = 'https://youtu.be/m_5MSWUb7XQ'
 
@@ -118,16 +119,13 @@ export default function CompareContrastPage() {
             <Typography color="text.secondary" lineHeight={1.8} sx={{ mt: 1.5, mb: 3 }}>
               Documento utilizado para organizar el análisis comparativo presentado en la actividad.
             </Typography>
-            <Button
-              component={RouterLink}
-              to="/evidencia/compara-contrasta"
-              target="_blank"
-              rel="noreferrer"
-              variant="contained"
-              endIcon={<OpenInNewRounded />}
-            >
-              Abrir evidencia PDF
-            </Button>
+            <PdfEvidenceDialog
+              file={pdfFile}
+              title="Compara y contrasta"
+              subtitle="Rutina de pensamiento"
+              buttonLabel="Abrir evidencia PDF"
+              buttonVariant="contained"
+            />
           </CardContent>
         </Card>
 
