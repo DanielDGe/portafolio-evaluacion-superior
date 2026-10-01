@@ -247,8 +247,10 @@ export default function PdfJsViewer({ fileUrl }) {
 
     return () => {
       active = false
-      loadingTask?.destroy()
-      loadedPdf?.destroy()
+
+      if (loadingTask && typeof loadingTask.destroy === 'function') {
+        Promise.resolve(loadingTask.destroy()).catch(() => {})
+      }
     }
   }, [fileUrl])
 
