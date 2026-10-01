@@ -10,13 +10,13 @@ import {
   Button,
   Chip,
   Dialog,
-  DialogContent,
   IconButton,
   Stack,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
+import PdfJsViewer from './PdfJsViewer.jsx'
 
 export default function PdfEvidenceDialog({
   file,
@@ -102,7 +102,7 @@ export default function PdfEvidenceDialog({
                 variant="outlined"
                 startIcon={<DownloadRounded />}
               >
-                Descargar
+                Descargar PDF
               </Button>
               <IconButton
                 onClick={() => setOpen(false)}
@@ -115,19 +115,8 @@ export default function PdfEvidenceDialog({
           </Stack>
         </Box>
 
-        <DialogContent className="pdf-modal-content">
-          <Box
-            component="iframe"
-            src={fileUrl}
-            title={`PDF: ${title}`}
-            className="pdf-modal-frame"
-          />
-        </DialogContent>
-
-        <Box className="pdf-modal-footer">
-          <Typography variant="body2" color="text.secondary">
-            Cierra esta ventana para continuar exactamente desde la sección donde estabas.
-          </Typography>
+        <Box className="pdf-modal-content">
+          <PdfJsViewer fileUrl={fileUrl} />
         </Box>
       </Dialog>
     </>
