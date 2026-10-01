@@ -177,7 +177,9 @@ const buildTheme = (mode, paletteKey) => {
 }
 
 export function PortfolioThemeProvider({ children }) {
-  const [mode, setMode] = useState(() => getStoredValue('portfolio-theme', 'light'))
+  const [mode, setMode] = useState(() =>
+    getStoredValue('portfolio-theme', 'light') === 'dark' ? 'dark' : 'light',
+  )
   const [paletteKey, setPalette] = useState(() => {
     const stored = getStoredValue('portfolio-palette', 'academic')
     return portfolioPalettes[stored] ? stored : 'academic'
@@ -185,7 +187,13 @@ export function PortfolioThemeProvider({ children }) {
 
   const setPaletteKey = (nextPalette) => {
     if (!portfolioPalettes[nextPalette]) return
-    localStorage.setItem('portfolio-palette', nextPalette)
+
+    try {
+      localStorage.setItem('portfolio-palette', nextPalette)
+    } catch {
+      // The theme still updates for the current session if storage is unavailable.
+    }
+
     setPalette(nextPalette)
   }
 
@@ -197,7 +205,12 @@ export function PortfolioThemeProvider({ children }) {
       toggleColorMode: () =>
         setMode((current) => {
           const next = current === 'light' ? 'dark' : 'light'
-          localStorage.setItem('portfolio-theme', next)
+          try {
+            localStorage.setItem('portfolio-theme', next)
+          } catch {
+            // The mode still updates for the current session if storage is unavailable.
+          }
+
           return next
         }),
     }),
