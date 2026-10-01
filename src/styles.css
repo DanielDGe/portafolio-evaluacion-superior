@@ -893,17 +893,9 @@ a {
 }
 
 
-/* Branded PDF evidence viewer */
-.evidence-viewer-page {
-  padding-top: 42px;
-}
-
-.evidence-viewer-card {
-  overflow: hidden;
-}
-
-.evidence-viewer-toolbar {
-  padding: 22px 24px;
+/* Inline PDF evidence modal */
+.pdf-modal-toolbar {
+  padding: 18px 20px;
   border-bottom: 1px solid var(--mui-palette-divider);
   background: color-mix(
     in srgb,
@@ -912,13 +904,13 @@ a {
   );
 }
 
-.evidence-viewer-icon {
-  width: 46px;
-  height: 46px;
+.pdf-modal-icon {
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  border-radius: 13px;
+  border-radius: 12px;
   color: var(--mui-palette-primary-main);
   background: color-mix(
     in srgb,
@@ -927,47 +919,44 @@ a {
   );
 }
 
-.evidence-viewer-frame-wrap {
-  min-height: 720px;
-  height: calc(100vh - 235px);
-  background: color-mix(
-    in srgb,
-    var(--mui-palette-text-primary) 5%,
-    var(--mui-palette-background-default)
-  );
+.pdf-modal-content {
+  flex: 1;
+  min-height: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  background: #2b2b2b;
 }
 
-.evidence-viewer-frame {
+.pdf-modal-frame {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 720px;
+  min-height: 620px;
   border: 0;
   background: var(--mui-palette-background-paper);
 }
 
-.evidence-viewer-fallback {
-  padding: 14px 24px 18px;
+.pdf-modal-footer {
+  padding: 10px 20px 12px;
   border-top: 1px solid var(--mui-palette-divider);
+  background: var(--mui-palette-background-paper);
 }
 
-@media (max-width: 760px) {
-  .evidence-viewer-page {
-    width: min(100% - 20px, 1180px);
-    padding-top: 24px;
+@media (max-width: 600px) {
+  .pdf-modal-toolbar {
+    padding: 14px 16px;
   }
 
-  .evidence-viewer-toolbar {
-    padding: 18px;
+  .pdf-modal-content {
+    min-height: 0;
   }
 
-  .evidence-viewer-frame-wrap,
-  .evidence-viewer-frame {
-    min-height: 620px;
-    height: calc(100vh - 260px);
+  .pdf-modal-frame {
+    min-height: 0;
+    height: 100%;
   }
 
-  .evidence-viewer-fallback {
-    padding: 12px 18px 16px;
+  .pdf-modal-footer {
+    padding: 9px 16px 11px;
   }
 }
