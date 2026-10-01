@@ -5,7 +5,6 @@ import {
   EditNoteOutlined,
   FactCheckOutlined,
   GridViewOutlined,
-  OpenInNewRounded,
   QuizOutlined,
   SchoolOutlined,
   TuneOutlined,
@@ -13,7 +12,6 @@ import {
 import {
   Alert,
   Box,
-  Button,
   Card,
   CardContent,
   Chip,
