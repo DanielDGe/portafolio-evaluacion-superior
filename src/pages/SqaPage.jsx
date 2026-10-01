@@ -15,6 +15,7 @@ import {
   Typography,
 } from '@mui/material'
 import { sqaDocuments } from '../data/portfolio.js'
+import { Link as RouterLink } from 'react-router-dom'
 
 const stages = [
   ['S', '¿Qué sé?', 'Reconocer los conocimientos y experiencias que ya tenía.'],
@@ -50,7 +51,7 @@ export default function SqaPage() {
 
       <Box className="document-grid-new">
         {sqaDocuments.map((document) => {
-          const documentUrl = import.meta.env.BASE_URL + 'documents/' + document.file
+          const evidenceId = document.phase === 'Parte I' ? 'sqa-parte-1' : 'sqa-parte-2'
 
           return (
             <Card key={document.phase} className="document-card-new">
@@ -68,8 +69,8 @@ export default function SqaPage() {
               </CardContent>
               <CardActions sx={{ px: 3.5, pb: 3.5 }}>
                 <Button
-                  component="a"
-                  href={documentUrl}
+                  component={RouterLink}
+                  to={`/evidencia/${evidenceId}`}
                   target="_blank"
                   rel="noreferrer"
                   endIcon={<OpenInNewRounded />}
