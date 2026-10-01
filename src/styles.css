@@ -94,6 +94,28 @@ a {
   height: 44px;
 }
 
+html[data-portfolio-palette='tech'] .profile-code-icon,
+html[data-portfolio-palette='tech'] .metric-icon,
+html[data-portfolio-palette='tech'] .soft-icon,
+html[data-portfolio-palette='tech'] .routine-section-icon,
+html[data-portfolio-palette='tech'] .course-unit-icon,
+html[data-portfolio-palette='tech'] .reference-item-icon,
+html[data-portfolio-palette='tech'] .metacognition-step-icon,
+html[data-portfolio-palette='violet'] .profile-code-icon,
+html[data-portfolio-palette='violet'] .metric-icon,
+html[data-portfolio-palette='violet'] .soft-icon,
+html[data-portfolio-palette='violet'] .routine-section-icon,
+html[data-portfolio-palette='violet'] .course-unit-icon,
+html[data-portfolio-palette='violet'] .reference-item-icon,
+html[data-portfolio-palette='violet'] .metacognition-step-icon {
+  color: var(--mui-palette-secondary-main);
+  background: color-mix(
+    in srgb,
+    var(--mui-palette-secondary-main) 11%,
+    transparent
+  );
+}
+
 .code-panel {
   padding: 20px;
   display: grid;
