@@ -20,6 +20,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 
 const instruments = [
   {
@@ -75,7 +76,6 @@ const instruments = [
 ]
 
 export default function InstrumentsPage() {
-  const pdfUrl = import.meta.env.BASE_URL + 'documents/banco-instrumentos-evaluacion.pdf'
 
   return (
     <Box className="page-shell">
@@ -205,8 +205,8 @@ export default function InstrumentsPage() {
             </Typography>
 
             <Button
-              component="a"
-              href={pdfUrl}
+              component={RouterLink}
+              to="/evidencia/banco-instrumentos"
               target="_blank"
               rel="noreferrer"
               variant="contained"
