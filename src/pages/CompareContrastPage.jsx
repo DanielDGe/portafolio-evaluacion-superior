@@ -186,7 +186,10 @@ export default function CompareContrastPage() {
           <Box
             component="button"
             type="button"
-            onClick={() => setImageOpen(true)}
+            onClick={(event) => {
+              event.currentTarget.blur()
+              setImageOpen(true)
+            }}
             aria-label="Ampliar publicación y respuestas del foro Compara y Contrasta"
             className="forum-evidence-button"
           >
