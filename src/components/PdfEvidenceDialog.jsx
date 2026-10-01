@@ -36,7 +36,10 @@ export default function PdfEvidenceDialog({
     <>
       <Button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={(event) => {
+          event.currentTarget.blur()
+          setOpen(true)
+        }}
         variant={buttonVariant}
         size={buttonSize}
         endIcon={<OpenInFullRounded />}
