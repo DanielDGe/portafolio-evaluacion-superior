@@ -21,7 +21,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import { Link as RouterLink } from 'react-router-dom'
+import PdfEvidenceDialog from '../components/PdfEvidenceDialog.jsx'
 
 const metacognitionSteps = [
   {
@@ -76,6 +76,7 @@ const selfAssessment = [
 ]
 
 export default function ReflectionPage() {
+  const pdfFile = 'sqa-parte-2-metacognicion.pdf'
 
   return (
     <Box className="page-shell">
@@ -141,18 +142,15 @@ export default function ReflectionPage() {
             desarrollada como parte de la actividad de aprendizaje.
           </Typography>
 
-          <Button
-            component={RouterLink}
-            to="/evidencia/metacognicion"
-            target="_blank"
-            rel="noreferrer"
-            variant="contained"
-            size="small"
-            endIcon={<OpenInNewRounded />}
-            sx={{ mt: 2.5, px: 2 }}
-          >
-            Abrir evidencia original
-          </Button>
+          <PdfEvidenceDialog
+            file={pdfFile}
+            title="SQA Parte II + Metacognición"
+            subtitle="Evidencia de origen"
+            buttonLabel="Abrir evidencia original"
+            buttonVariant="contained"
+            buttonSize="small"
+            buttonSx={{ mt: 2.5, px: 2 }}
+          />
         </CardContent>
       </Card>
 
