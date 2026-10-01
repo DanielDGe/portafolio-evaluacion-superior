@@ -178,12 +178,13 @@ export default function ObserveThinkWonderPage() {
             <Box
               component="button"
               type="button"
-              onClick={() =>
+              onClick={(event) => {
+                event.currentTarget.blur()
                 setSelectedImage({
                   src: peerResponsesImage,
                   alt: 'Respuestas de compañeras a la pregunta sobre inteligencia artificial y evaluación',
                 })
-              }
+              }}
               aria-label="Ampliar respuestas de compañeros"
               className="forum-evidence-button"
             >
@@ -245,12 +246,13 @@ export default function ObserveThinkWonderPage() {
             <Box
               component="button"
               type="button"
-              onClick={() =>
+              onClick={(event) => {
+                event.currentTarget.blur()
                 setSelectedImage({
                   src: evidenceImage,
                   alt: 'Captura de la participación de Daniel García en el foro Observo, Pienso, Me pregunto',
                 })
-              }
+              }}
               aria-label="Ampliar captura del foro"
               className="forum-evidence-button"
             >
