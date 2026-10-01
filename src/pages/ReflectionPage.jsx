@@ -21,6 +21,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 
 const metacognitionSteps = [
   {
@@ -75,8 +76,6 @@ const selfAssessment = [
 ]
 
 export default function ReflectionPage() {
-  const evidenceUrl =
-    import.meta.env.BASE_URL + 'documents/sqa-parte-2-metacognicion.pdf'
 
   return (
     <Box className="page-shell">
@@ -143,8 +142,8 @@ export default function ReflectionPage() {
           </Typography>
 
           <Button
-            component="a"
-            href={evidenceUrl}
+            component={RouterLink}
+            to="/evidencia/metacognicion"
             target="_blank"
             rel="noreferrer"
             variant="contained"
