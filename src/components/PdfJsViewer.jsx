@@ -34,12 +34,66 @@ function loadPdfJs() {
 }
 
 function PdfPageCanvas({ pdf, pageNumber, availableWidth, zoom }) {
+  const shellRef = useRef(null)
   const canvasRef = useRef(null)
-  const [status, setStatus] = useState('loading')
+  const [visible, setVisible] = useState(false)
+  const [ratio, setRatio] = useState(0.77)
+  const [status, setStatus] = useState('idle')
+
+  const displayWidth = Math.max(260, availableWidth * zoom)
+  const displayHeight = displayWidth / ratio
+
+  useEffect(() => {
+    const node = shellRef.current
+    if (!node) return undefined
+
+    const scrollRoot = node.closest('.pdfjs-scroll-area')
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      {
+        root: scrollRoot,
+        rootMargin: '700px 0px',
+        threshold: 0.01,
+      },
+    )
+
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    let active = true
+
+    pdf.getPage(pageNumber).then((page) => {
+      if (!active) return
+      const viewport = page.getViewport({ scale: 1 })
+      setRatio(viewport.width / viewport.height)
+    })
+
+    return () => {
+      active = false
+    }
+  }, [pdf, pageNumber])
 
   useEffect(() => {
     let active = true
     let renderTask
+
+    const clearCanvas = () => {
+      const canvas = canvasRef.current
+      if (!canvas) return
+      canvas.width = 1
+      canvas.height = 1
+      canvas.style.width = '1px'
+      canvas.style.height = '1px'
+    }
+
+    if (!visible) {
+      setStatus('idle')
+      clearCanvas()
+      return undefined
+    }
 
     const renderPage = async () => {
       setStatus('loading')
@@ -49,15 +103,14 @@ function PdfPageCanvas({ pdf, pageNumber, availableWidth, zoom }) {
         if (!active) return
 
         const baseViewport = page.getViewport({ scale: 1 })
-        const desiredWidth = Math.max(260, availableWidth * zoom)
-        const scale = desiredWidth / baseViewport.width
+        const scale = displayWidth / baseViewport.width
         const viewport = page.getViewport({ scale })
         const canvas = canvasRef.current
 
         if (!canvas) return
 
         const context = canvas.getContext('2d', { alpha: false })
-        const outputScale = Math.min(window.devicePixelRatio || 1, 2)
+        const outputScale = Math.min(window.devicePixelRatio || 1, 1.6)
 
         canvas.width = Math.floor(viewport.width * outputScale)
         canvas.height = Math.floor(viewport.height * outputScale)
@@ -87,26 +140,37 @@ function PdfPageCanvas({ pdf, pageNumber, availableWidth, zoom }) {
     return () => {
       active = false
       renderTask?.cancel()
+      if (!visible) clearCanvas()
     }
-  }, [pdf, pageNumber, availableWidth, zoom])
+  }, [pdf, pageNumber, displayWidth, visible])
 
   return (
-    <Box className="pdfjs-page-shell">
+    <Box ref={shellRef} className="pdfjs-page-shell">
       <Typography className="pdfjs-page-label">
         Página {pageNumber}
       </Typography>
 
-      <Box className="pdfjs-page-canvas-wrap">
-        {status === 'loading' && (
+      <Box
+        className="pdfjs-page-canvas-wrap"
+        sx={{
+          width: `${displayWidth}px`,
+          minHeight: `${displayHeight}px`,
+        }}
+      >
+        {visible && status === 'loading' && (
           <Box className="pdfjs-page-loading">
             <CircularProgress size={24} />
           </Box>
         )}
 
-        {status === 'error' && (
+        {visible && status === 'error' && (
           <Typography color="error" variant="body2" sx={{ p: 2 }}>
             No se pudo renderizar esta página.
           </Typography>
+        )}
+
+        {!visible && (
+          <Box className="pdfjs-page-placeholder" aria-hidden="true" />
         )}
 
         <canvas
@@ -169,7 +233,7 @@ export default function PdfJsViewer({ fileUrl }) {
         setPdf(loadedPdf)
         setNumPages(loadedPdf.numPages)
         setStatus('ready')
-      } catch (loadError) {
+      } catch {
         if (active) {
           setError(
             'No se pudo cargar el visor PDF. Puedes descargar el documento desde el botón superior.',
@@ -188,15 +252,19 @@ export default function PdfJsViewer({ fileUrl }) {
     }
   }, [fileUrl])
 
-  const zoomOut = () => setZoom((value) => Math.max(0.7, Number((value - 0.1).toFixed(1))))
-  const zoomIn = () => setZoom((value) => Math.min(1.6, Number((value + 0.1).toFixed(1))))
+  const zoomOut = () =>
+    setZoom((value) => Math.max(0.7, Number((value - 0.1).toFixed(1))))
+  const zoomIn = () =>
+    setZoom((value) => Math.min(1.6, Number((value + 0.1).toFixed(1))))
   const resetZoom = () => setZoom(1)
 
   return (
     <Box ref={containerRef} className="pdfjs-viewer">
       <Box className="pdfjs-toolbar">
         <Typography variant="body2" fontWeight={700}>
-          {status === 'ready' ? `${numPages} ${numPages === 1 ? 'página' : 'páginas'}` : 'Documento PDF'}
+          {status === 'ready'
+            ? `${numPages} ${numPages === 1 ? 'página' : 'páginas'}`
+            : 'Documento PDF'}
         </Typography>
 
         <Stack direction="row" spacing={0.4} alignItems="center">
