@@ -5,7 +5,6 @@ import {
   DescriptionOutlined,
   InsightsOutlined,
   LightbulbOutlined,
-  OpenInNewRounded,
   PsychologyAltOutlined,
   RouteOutlined,
   SchoolOutlined,
@@ -14,7 +13,6 @@ import {
 import {
   Alert,
   Box,
-  Button,
   Card,
   CardContent,
   Chip,
