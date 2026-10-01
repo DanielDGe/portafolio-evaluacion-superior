@@ -22,6 +22,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 
 const stages = [
   {
@@ -50,7 +51,6 @@ const stages = [
 export default function ConnectExtendChallengePage() {
   const [imageOpen, setImageOpen] = useState(false)
 
-  const pdfUrl = import.meta.env.BASE_URL + 'documents/conectar-extender-desafiar.pdf'
   const forumImage = import.meta.env.BASE_URL + 'images/foro-conectar-extender-desafiar.png'
 
   return (
@@ -113,8 +113,8 @@ export default function ConnectExtendChallengePage() {
             </Typography>
 
             <Button
-              component="a"
-              href={pdfUrl}
+              component={RouterLink}
+              to="/evidencia/conectar-extender-desafiar"
               target="_blank"
               rel="noreferrer"
               variant="contained"
