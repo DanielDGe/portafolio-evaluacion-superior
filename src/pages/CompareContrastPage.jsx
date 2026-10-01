@@ -21,11 +21,11 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 
 export default function CompareContrastPage() {
   const [imageOpen, setImageOpen] = useState(false)
 
-  const pdfUrl = import.meta.env.BASE_URL + 'documents/compara-y-contrasta.pdf'
   const forumImage = import.meta.env.BASE_URL + 'images/foro-compara-y-contrasta.png'
   const videoUrl = 'https://youtu.be/m_5MSWUb7XQ'
 
@@ -119,8 +119,8 @@ export default function CompareContrastPage() {
               Documento utilizado para organizar el análisis comparativo presentado en la actividad.
             </Typography>
             <Button
-              component="a"
-              href={pdfUrl}
+              component={RouterLink}
+              to="/evidencia/compara-contrasta"
               target="_blank"
               rel="noreferrer"
               variant="contained"
